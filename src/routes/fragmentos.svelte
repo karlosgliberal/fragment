@@ -5,6 +5,9 @@
 </script>
 
 <svelte:head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js">
+
+    </script>
     <title>About</title>
 </svelte:head>
 
