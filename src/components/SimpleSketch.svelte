@@ -1,14 +1,14 @@
 <script>
     // Import some UI
-    // import Slider from './Slider.svelte';
+    import Slider from './Slider.svelte';
     // import p5func from './p5.func.js';
 
     // This will get passed in with the P5 instance
     export let p5;
 
     // Size of the canvas in pixels
-    export let width = 960;
-    export let height = 540;
+    let width = 960;
+    let height = 540;
     let classifier;
     let img;
     let video;
@@ -62,7 +62,7 @@
         p5.createCanvas(960, 540);
 
         //noCursor();
-        video = p5.createVideo('singinginrherain.mp4', videoLoaded);
+        video = p5.createVideo('fredastaire.mp4', videoLoaded);
 
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
@@ -103,10 +103,9 @@
 
         video.volume(volumen);
 
-        if (videoImagen) {
-            //tint(255, videoOpacidad);
-            p5.image(video, 0, 0, width, height);
-        }
+        //tint(255, videoOpacidad);
+        p5.image(video, 0, 0, width, height);
+
         drawParticles(paso);
 
         if (choreography) {
@@ -235,7 +234,7 @@
             p5.rotate(this.theta);
 
             // if (paso == "default") {
-            p5.rect(this.r, this.r, this.r, this.r);
+            p5.rect(this.r, this.r, this.r * radius, this.r * radius);
             p5.strokeWeight(3);
             //point(10, 10);
             // } else if (paso == "uno") {
@@ -258,4 +257,4 @@
 </script>
 
 <!-- Wire up the GUI to your props -->
-<!-- <Slider label="Radius" bind:value={radius} /> -->
+<Slider label="Radius" bind:value={radius} />

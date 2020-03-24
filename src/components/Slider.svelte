@@ -1,33 +1,31 @@
 <script>
-	import Param from './Param.svelte';
+    import Param from './Param.svelte';
 
-	export let label = '';
+    export let label = '';
 
-	export let value = 0;
-	export let min = 0;
-	export let max = 1;
-	export let step = 0.01;
+    export let value = 0;
+    export let min = 0;
+    export let max = 100;
+    export let step = 0.1;
 </script>
 
-<Param {label}>
-	<input type='range' bind:value={value} {min} {max} {step} />
-	<label class='display'>
-		{value}
-	</label>
-</Param>
-
 <style>
-	input {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-	}
-	label.display {
-		font-size: 12px;
-		text-align: right;
-		min-width: 25px;
-		font-family: "Andale Mono", monospace;
-		padding-left: 10px;
-	}
+    input {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    label.display {
+        font-size: 12px;
+        text-align: right;
+        min-width: 25px;
+        font-family: 'Andale Mono', monospace;
+        padding-left: 10px;
+    }
 </style>
+
+<Param {label}>
+    <input type="range" bind:value {min} {max} {step} />
+    <label class="display">{value}</label>
+</Param>

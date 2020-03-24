@@ -122,8 +122,7 @@
         flex-grow: 1;
         flex-shrink: 1;
     }
-    .props-container {
-        display: none;
+    /* .props-container {
         padding: 20px;
         box-sizing: border-box;
         flex-basis: 300px;
@@ -134,10 +133,14 @@
         height: 100%;
         background: hsl(0, 0%, 95%);
         border-left: 4px solid hsl(10, 0%, 90%);
-    }
+    } */
 </style>
 
 <main>
     <div bind:this={canvasContainer} class="canvas-container" />
-    <div bind:this={propContainer} class="props-container" />
+    <div
+        bind:this={propContainer}
+        class="min-w-2 text-red-500 p-8 bg-green-800 ">
+        hols
+    </div>
 </main>
