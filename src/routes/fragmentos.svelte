@@ -5,7 +5,13 @@
 </script>
 
 <svelte:head>
+    <!-- <script src="p5.func.js">
+
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js">
+
+    </script>
+    <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js">
 
     </script>
     <title>About</title>
@@ -15,5 +21,5 @@
     <h1 class="text-white">Fragmentos</h1>
 
     <p class="text-white">Pequeñas piezas de imagineria</p>
-    <P5Canvas sketch={SimpleSketch} color="#99B7FF" />
+    <P5Canvas sketch={SimpleSketch} />
 </Page>

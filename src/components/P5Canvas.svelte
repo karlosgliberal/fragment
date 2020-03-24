@@ -3,7 +3,6 @@
     // You typically won't need to worry about this file :)
 
     import { onMount } from 'svelte';
-    // const p5 = require('./p5.js');
 
     export let sketch;
 
