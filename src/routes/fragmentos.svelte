@@ -19,7 +19,6 @@
 
 <Page>
     <h1 class="text-white">Fragmentos</h1>
-
     <p class="text-white">Pequeñas piezas de imagineria</p>
     <P5Canvas sketch={SimpleSketch} />
 </Page>

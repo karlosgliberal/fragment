@@ -123,6 +123,7 @@
         flex-shrink: 1;
     }
     .props-container {
+        display: none;
         padding: 20px;
         box-sizing: border-box;
         flex-basis: 300px;
