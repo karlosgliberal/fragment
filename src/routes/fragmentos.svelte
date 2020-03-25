@@ -5,16 +5,7 @@
 </script>
 
 <svelte:head>
-    <!-- <script src="p5.func.js">
-
-    </script> -->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js">
-
-    </script>
-    <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js">
-
-    </script>
-    <title>About</title>
+    <title>Fragmentos</title>
 </svelte:head>
 
 <Page>

@@ -59,6 +59,7 @@
         <div class="hidden md:flex items-center">
             {#each links as { href, text }, index}
                 <NavLink
+                    console.log(segment)
                     {href}
                     active={segment === href}
                     class={index < links.length - 1 ? 'mr-10 text-white' : 'text-white'}>
