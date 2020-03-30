@@ -1,3 +1,7 @@
+<script>
+    export let segment;
+</script>
+
 <svelte:head>
     <title>Dance Pose</title>
     <link

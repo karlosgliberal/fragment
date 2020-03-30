@@ -1,6 +1,6 @@
 <script>
     import Page from '../../components/Page.svelte';
-    import SimpleSketch from '../../components/SimpleSketch.svelte';
+    import SimpleSketch from './sketch.svelte';
     import P5Canvas from '../../components/P5Canvas.svelte';
 </script>
 
