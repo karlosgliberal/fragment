@@ -1,5 +1,7 @@
 <script>
     import Slider from '../../components/Slider.svelte';
+    import { goto } from '@sapper/app';
+
     export let target;
     export let p5;
     export let width = 960;
@@ -110,9 +112,8 @@
     }
 
     function stopSketch() {
-        video.volume(0);
-        video.stop();
-        clicked = false;
+        p5.noLoop();
+        goto('.', { replaceState: true });
     }
 
     function videoLoaded() {

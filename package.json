@@ -17,6 +17,7 @@
     "dependencies": {
         "@fullhuman/postcss-purgecss": "^2.1.0",
         "compression": "^1.7.4",
+        "idempotent-babel-polyfill": "^7.4.4",
         "polka": "next",
         "sirv": "^0.4.2"
     },
