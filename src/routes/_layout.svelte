@@ -6,13 +6,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tailwind Starter Template - Minimalist Blog: Tailwind Toolbox</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-    <!-- <script src="p5.func.js">
 
-    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js">
 
     </script>
