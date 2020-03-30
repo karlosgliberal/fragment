@@ -4,6 +4,7 @@
 
 <svelte:head>
     <title>Dance Pose</title>
+    <meta name="segment" content={segment} />
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap"
         rel="stylesheet" />

@@ -1,14 +1,13 @@
 <script>
-    // Import some UI
     import Slider from '../../components/Slider.svelte';
     // import p5func from './p5.func.js';
-
     // This will get passed in with the P5 instance
+    export let target;
     export let p5;
+    export let width = 960;
+    export let height = 540;
 
-    // Size of the canvas in pixels
-    let width = 960;
-    let height = 540;
+    let targetP5 = target;
     let classifier;
     let img;
     let video;

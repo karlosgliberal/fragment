@@ -7,6 +7,6 @@
 <Page>
     <h1 class="text-">Dancepose</h1>
     <p class="text">Pequeñas piezas de imagineria</p>
-    <P5Canvas sketch={SimpleSketch} />
+    <P5Canvas sketch={SimpleSketch} width="960" height="540" />
     <a class="text-white" href="contacto">contacto</a>
 </Page>
