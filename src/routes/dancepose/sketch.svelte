@@ -1,7 +1,5 @@
 <script>
     import Slider from '../../components/Slider.svelte';
-    // import p5func from './p5.func.js';
-    // This will get passed in with the P5 instance
     export let target;
     export let p5;
     export let width = 960;
@@ -35,21 +33,10 @@
     ];
 
     var volumen = 0.8;
-    var volumenMin = 0;
-    var volumenMax = 1;
-    var volumenStep = 0.1;
-
-    var videoOpacidad = 255;
-    var videoOpacidadMin = 0;
-    var videoOpacidadMax = 255;
-    var videoOpacidadStep = 5;
-
     var sound = false;
     var pause = false;
     var choreography = true;
     var videoImagen = true;
-
-    // A prop/variable
     let radius = 0.5;
 
     export function preload() {}
@@ -57,20 +44,16 @@
     function modelReady() {
         //select("#status").html("Model Loaded");
     }
-    // Setup a static artwork
+
     export function setup() {
         canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
-
-        //noCursor();
         video = p5.createVideo('fredastaire.mp4', videoLoaded);
-
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;
         });
         video.hide();
-
         colors[0] = p5.color(247, 23, 53, 220);
         colors[1] = p5.color(65, 234, 212, 220);
         colors[2] = p5.color(255, 159, 28, 220);
@@ -87,7 +70,6 @@
         p5.textSize(40);
     }
 
-    // Render it
     export function draw() {
         p5.background(0);
         if (!clicked) {
@@ -103,10 +85,7 @@
         }
 
         video.volume(volumen);
-
-        //tint(255, videoOpacidad);
         p5.image(video, 0, 0, width, height);
-
         drawParticles(paso);
 
         if (choreography) {
@@ -130,18 +109,17 @@
         }
     }
 
-    function sayHello() {
+    function stopSketch() {
         video.volume(0);
-        p5.noLoop();
+        video.stop();
+        clicked = false;
     }
 
     function videoLoaded() {
         video.size(960, 540);
     }
 
-    function controls() {}
-
-    export function canvasMousePressed() {
+    function canvasMousePressed() {
         if (!clicked) {
             video.volume(0);
             video.loop();
@@ -183,12 +161,8 @@
         let dis = p5.dist(targetX, targetY, X, Y);
         let C;
 
-        //  C = floor(random(3));
-
         C = p5.floor(p5.random(3, 6));
-
         let Rmax = dis > 20 ? 35 - dis : p5.random(2, 8);
-
         particles.push(new Particle(X, Y, C, Rmax, paso));
         //  particles.push(new Particle(X, Y, C, Rmax, paso));
     }
@@ -242,11 +216,7 @@
             // if (paso == "default") {
             p5.rect(this.r, this.r, this.r * radius, this.r * radius);
             p5.strokeWeight(3);
-            //point(10, 10);
-            // } else if (paso == "uno") {
-            //   rect(this.r, this.r, this.r + 4, this.r + 4);
-            // }
-
+            //point(10, 10);}
             p5.pop();
 
             this.theta += this.thetaSpeed;
@@ -265,8 +235,7 @@
 <button
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
     label="Boton"
-    on:click={sayHello}>
+    on:click={stopSketch}>
     ..
 </button>
-<!-- Wire up the GUI to your props -->
 <Slider label="Radius" bind:value={radius} />
