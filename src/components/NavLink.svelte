@@ -1,10 +1,15 @@
 <script>
+    import { beforeUpdate } from 'svelte';
     export let href;
     export let active = false;
 
     let className;
 
     export { className as class };
+
+    beforeUpdate(() => {
+        console.log('the component is about to update');
+    });
 </script>
 
 <style type="text/postcss">

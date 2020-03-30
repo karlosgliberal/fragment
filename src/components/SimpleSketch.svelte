@@ -9,10 +9,18 @@
     // Size of the canvas in pixels
     let width = 960;
     let height = 540;
+    let classifier;
+    let img;
+    let video;
+    let poseNet;
     let poses = [];
+    let canvas;
+
     let particles = [];
     // let e = new p5.Ease();
+    let ox, oy;
     let colors = [];
+    const canvasScale = 0.5;
     let clicked = false;
     let paso = 'Wrist';
     var bodyPoint = [
@@ -28,8 +36,20 @@
     ];
 
     var volumen = 0.8;
+    var volumenMin = 0;
+    var volumenMax = 1;
+    var volumenStep = 0.1;
+
+    var videoOpacidad = 255;
+    var videoOpacidadMin = 0;
+    var videoOpacidadMax = 255;
+    var videoOpacidadStep = 5;
+
+    var sound = false;
     var pause = false;
     var choreography = true;
+    var videoImagen = true;
+
     // A prop/variable
     let radius = 0.5;
 
@@ -40,7 +60,8 @@
     }
     // Setup a static artwork
     export function setup() {
-        p5.createCanvas(960, 540);
+        canvas = p5.createCanvas(960, 540);
+        canvas.mousePressed(canvasMousePressed);
 
         //noCursor();
         video = p5.createVideo('fredastaire.mp4', videoLoaded);
@@ -110,13 +131,18 @@
         }
     }
 
+    function sayHello() {
+        video.volume(0);
+        p5.noLoop();
+    }
+
     function videoLoaded() {
         video.size(960, 540);
     }
 
     function controls() {}
 
-    export function mousePressed() {
+    export function canvasMousePressed() {
         if (!clicked) {
             video.volume(0);
             video.loop();
@@ -237,5 +263,6 @@
     }
 </script>
 
+<button on:click={sayHello}>Click to say hello</button>
 <!-- Wire up the GUI to your props -->
 <Slider label="Radius" bind:value={radius} />

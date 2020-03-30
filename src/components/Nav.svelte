@@ -1,5 +1,6 @@
 <script>
     import { fade } from 'svelte/transition';
+
     import resolveConfig from 'tailwindcss/resolveConfig';
 
     import tailwindConfig from '../../tailwind.js';
@@ -52,14 +53,15 @@
 
 <nav class="py-6">
     <div class="flex items-center justify-between">
-        <a href="." class="main-link-font text-2xl text-white tracking-wider">
+        <a
+            href="http://localhost:3000"
+            class="main-link-font text-2xl text-white tracking-wider">
             Dance Pose
         </a>
 
         <div class="hidden md:flex items-center">
             {#each links as { href, text }, index}
                 <NavLink
-                    console.log(segment)
                     {href}
                     active={segment === href}
                     class={index < links.length - 1 ? 'mr-10 text-white' : 'text-white'}>
