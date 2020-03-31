@@ -1,11 +1,15 @@
 <script>
     import { goto } from '@sapper/app';
     import Data from './slide-data.js';
+    import Slider from '../../components/Slider.svelte';
 
     export let target;
     export let p5;
     export let width = 960;
     export let height = 540;
+    export let movida = 'movida';
+
+    $: cosa = movida;
 
     let targetP5 = target;
     let classifier;
