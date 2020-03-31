@@ -6,6 +6,15 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
+
+            screens: {
+                'sm': { 'min': '640px', 'max': '767px' },
+                'md': { 'min': '768px', 'max': '1023px' },
+                'lg': { 'min': '1024px', 'max': '1279px' },
+                'xl': { 'min': '1280px' },
+            },
+
+
             fontSize: {
                 xs: '.75rem',
                 sm: '.875rem',
@@ -22,6 +31,14 @@ module.exports = {
                 '9xl': '7rem',
                 '10xl': '8rem',
             },
+            colors: {
+                white: '#ffffff',
+                darkblue: '#2E2D3A',
+                orange: '#FF2200',
+                graysoft: '#E6E3E2';
+            }
+
+
         },
     },
     variants: {},
