@@ -1,6 +1,9 @@
 <script>
     import Slider from '../../components/Slider.svelte';
+    import Video from './Video.svelte';
     import { goto } from '@sapper/app';
+    import Data from './slide-data.js';
+    import Slides from './Slides.svelte';
 
     export let target;
     export let p5;
