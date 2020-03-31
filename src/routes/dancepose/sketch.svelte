@@ -54,7 +54,7 @@
     export function setup() {
         canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
-        video = p5.createVideo('fredastaire.mp4', videoLoaded);
+        video = p5.createVideo('fredand.mp4', videoLoaded);
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;
