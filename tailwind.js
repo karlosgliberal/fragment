@@ -35,8 +35,8 @@ module.exports = {
                 white: '#ffffff',
                 darkblue: '#2E2D3A',
                 orange: '#FF2200',
-                graysoft: '#E6E3E2';
-            }
+                graysoft: '#E6E3E2',
+            },
 
 
         },
