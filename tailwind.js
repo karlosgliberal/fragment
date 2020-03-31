@@ -2,6 +2,11 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     theme: {
+
+        container: {
+            center: true,
+        },
+
         extend: {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
@@ -49,7 +54,6 @@ module.exports = {
                 lato: ['Lato', 'sans-serif'],
                 ptserif: ['PT Serif', 'serif'],
             },
-
 
         },
     },
