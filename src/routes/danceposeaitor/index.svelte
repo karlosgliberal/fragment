@@ -7,6 +7,7 @@
 <Page>
     <div class="bg-darkblue text-white">
         <h1 class="text-graysoft">AAAAAAAA</h1>
+        <p class="font-ptserif text-3xl font-bold">hola esto es una prueba</p>
     </div>
     <h1 class="text-">Dancepose</h1>
     <p class="text">Pequeñas piezas de imagineria</p>
