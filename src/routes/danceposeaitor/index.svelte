@@ -1,10 +1,7 @@
 <script>
     import Page from '../../components/Page.svelte';
     import NavSlim from '../../components/NavSlim.svelte';
-    import SimpleSketch from './sketch.svelte';
-    import P5Canvas from '../../components/P5Canvas.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
-    import Data from './slide-data.js';
 </script>
 
 <div class="bg-graysoft">
@@ -14,7 +11,12 @@
     <div class="flex pt-12 mt-2">
         <div class="w-4/12 bg-gray-300 h-auto flex items-center justify-center">
             <div class="w-full h-auto bg-white rounded-sm">
-                <p />
+                <div class="flex content-center">
+                    <p class="font-lato text-xl">
+                        Click on the names to change the shapes
+                    </p>
+                </div>
+
             </div>
         </div>
         <div class="w-8/12 flex items-center justify-center overflow-hidden">
