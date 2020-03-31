@@ -12,10 +12,13 @@ body {
     @apply bg-graysoft;
 }
 
+.container {
+    padding: 0 15px;
+}
+
 .video-card {
     width: 190px;
     height: 140px;
-    border: 1px solid #000;
 }
 
 .title-border::before {
