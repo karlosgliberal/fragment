@@ -3,6 +3,7 @@
     import NavSlim from '../../components/NavSlim.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
     import Footer from '../../components/Footer.svelte';
+    import Dancehuman from './Dancehuman.svelte';
 </script>
 
 <div class="bg-white">
@@ -16,7 +17,8 @@
                 <div class="flex content-center flex-col">
                     <p class="font-lato text-xl text-center py-3" />
                     <div class="pt-4">
-                        <img class="center" src="dancehuman.svg" alt="" />
+                        {Dancehuman}
+                        <img class="center" src={Dancehuman} alt="" />
                     </div>
                 </div>
 
