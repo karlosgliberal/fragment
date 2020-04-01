@@ -1,6 +1,6 @@
-<div class="flex justify-end bg-darkblue ">
+<div class="flex justify-end bg-black ">
 
-    <div class="flex content-center pr-3">
+    <div class="flex content-center pr-3 pt-2">
         <div>
             <a href="/">
                 <img src="logobiko.svg" alt="Biko" />

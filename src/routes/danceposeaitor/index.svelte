@@ -5,7 +5,7 @@
     import Footer from '../../components/Footer.svelte';
 </script>
 
-<div class="bg-graysoft">
+<div class="bg-white">
 
     <NavSlim />
 
@@ -18,7 +18,7 @@
                         Click on the names to change the shapes
                     </p>
                     <div class="pt-4">
-                        <img class="" src="temp.svg" alt="" />
+                        <img class="center" src="dancehuman.svg" alt="" />
                     </div>
                 </div>
 
