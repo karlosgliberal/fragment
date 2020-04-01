@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-    <title>Dance Pose</title>
+    <title>Dance Pose - About</title>
     <meta name="segment" content={segment} />
 
 </svelte:head>
