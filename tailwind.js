@@ -42,14 +42,7 @@ module.exports = {
                 orange: '#FF2200',
                 graysoft: '#E6E3E2',
             },
-            spacing: {
-                '1': '8px',
-                '2': '12px',
-                '3': '16px',
-                '4': '24px',
-                '5': '32px',
-                '6': '48px',
-            },
+
             fontFamily: {
                 lato: ['Lato', 'sans-serif'],
                 ptserif: ['PT Serif', 'serif'],

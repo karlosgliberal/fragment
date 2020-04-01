@@ -2,7 +2,7 @@
 
     <div class="flex content-center pr-3">
         <div>
-            <a href="">
+            <a href="/">
                 <img src="logobiko.svg" alt="Biko" />
             </a>
         </div>
@@ -10,7 +10,10 @@
             <img src="more.svg" alt="More" />
         </div>
         <div>
-            <img src="logobikolabs.svg" alt="Bikolabs" />
+            <a href="/">
+                <img src="logobikolabs.svg" alt="Bikolabs" />
+            </a>
+
         </div>
 
     </div>

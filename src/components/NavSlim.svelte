@@ -1,4 +1,4 @@
-<div class="flex bg-darkblue">
+<div class="flex bg-darkblue py-3">
     <div class="w-1/3 h-6 flex justify-star items-center">
         <div class="pl-2">
             <a href=".">

@@ -9,27 +9,34 @@
 
     <NavSlim />
 
-    <div class="flex pt-12 mt-2">
-        <div class="w-4/12 bg-gray-300 h-auto flex items-center justify-center">
-            <div class="w-full h-auto bg-white rounded-sm">
-                <div class="flex content-center">
-                    <p class="font-lato text-xl">
+    <div class="flex flex-col xl:flex-row pt-12 mt-2">
+        <div class="w-full xl:w-4/12 flex items-center justify-center p-5">
+
+            <div class="w-full h-auto bg-white border rounded-lg p-4">
+                <div class="flex content-center flex-col">
+                    <p class="font-lato text-xl text-center py-3">
                         Click on the names to change the shapes
                     </p>
+                    <div class="pt-4">
+                        <img class="" src="temp.svg" alt="" />
+                    </div>
                 </div>
 
             </div>
+
         </div>
-        <div class="w-8/12 flex items-center justify-center overflow-hidden">
+        <div
+            class="w-full xl:w-8/12 flex items-center justify-center
+            overflow-hidden">
             <img src="video.png" alt="" />
         </div>
     </div>
 
-    <div class="container mx-auto py-5 ">
-        <div class="title-border py-5">More videos</div>
+    <div class="container mx-auto py-10">
+        <div class="title-border">Play with more videos</div>
         <div
-            class="flex justify-between flex-wrap flex-column lg:flex-row
-            content-around">
+            class="flex justify-center xl:justify-between flex-wrap flex-column
+            lg:flex-row content-around">
             <VideoMini />
             <VideoMini />
             <VideoMini />

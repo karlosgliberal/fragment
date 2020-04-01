@@ -13,12 +13,25 @@ body {
 }
 
 .container {
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .video-card {
     width: 190px;
     height: 140px;
+
+    @apply transition duration-150 ease-in-out;
+}
+
+.video-card:hover {
+    opacity: 0.6;
+
+    @apply transition duration-150 ease-in-out;
+}
+
+a:hover {
+    opacity: 0.8;
 }
 
 .title-border::before {
