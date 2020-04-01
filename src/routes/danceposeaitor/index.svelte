@@ -4,6 +4,12 @@
     import VideoMini from '../../components/VideoMini.svelte';
     import Footer from '../../components/Footer.svelte';
     import Dancehuman from './Dancehuman.svelte';
+    import SimpleSketch from './sketch.svelte';
+    import P5Canvas from '../../components/P5Canvas.svelte';
+
+    function handleMessage(event) {
+        alert(event.detail.text);
+    }
 </script>
 
 <div class="bg-white">
@@ -17,8 +23,8 @@
                 <div class="flex content-center flex-col">
                     <p class="font-lato text-xl text-center py-3" />
                     <div class="pt-4">
-                        {Dancehuman}
-                        <img class="center" src={Dancehuman} alt="" />
+                        <Dancehuman />
+                        <!-- <img class="center" src={Dancehuman} alt="" /> -->
                     </div>
                 </div>
 
@@ -28,7 +34,8 @@
         <div
             class="w-full xl:w-2/3 flex items-center justify-center
             overflow-hidden">
-            <img src="video.png" alt="" />
+            <P5Canvas sketch={SimpleSketch} width="960" height="540" />
+
         </div>
     </div>
 

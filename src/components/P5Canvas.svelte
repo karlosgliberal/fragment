@@ -138,7 +138,5 @@
 
 <main>
     <div bind:this={canvasContainer} class="canvas-container" />
-    <div
-        bind:this={propContainer}
-        class="min-w-2 text-red-500 p-8 bg-green-800 " />
+    <div bind:this={propContainer} />
 </main>

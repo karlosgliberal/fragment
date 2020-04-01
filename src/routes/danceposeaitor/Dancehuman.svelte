@@ -1,3 +1,9 @@
+<script>
+    function movida() {
+        alert('movida');
+    }
+</script>
+
 <svg width="360px" height="506px">
     <title>dancehuman</title>
     <g
@@ -8,7 +14,7 @@
         fill-rule="evenodd">
         <g id="dancehuman">
             <g id="circulos" fill="#FF2200" fill-rule="nonzero">
-                <circle id="wrist" cx="6" cy="233" r="6" />
+                <circle on:click={movida} id="wrist" cx="6" cy="233" r="6" />
                 <circle id="wrist" cx="354" cy="242" r="6" />
                 <circle id="elbow" cx="281" cy="170" r="6" />
                 <circle id="elbow" cx="79" cy="162" r="6" />
