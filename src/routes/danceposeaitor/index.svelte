@@ -2,6 +2,7 @@
     import Page from '../../components/Page.svelte';
     import NavSlim from '../../components/NavSlim.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
+    import Footer from '../../components/Footer.svelte';
 </script>
 
 <div class="bg-graysoft">
@@ -38,4 +39,5 @@
     </div>
 
     <Page />
+    <Footer />
 </div>
