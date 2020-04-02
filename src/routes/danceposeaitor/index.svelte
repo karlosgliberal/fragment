@@ -35,11 +35,9 @@
         <div class="flex items-center column justify-center">
             <P5Canvas sketch={SimpleSketch} width="700" height="525" />
 
-            <div class="container mx-auto py-10">
-                <div class="title-border py-3">Vídeos</div>
-                <div
-                    class="flex justify-center xl:justify-around flex-wrap
-                    flex-column lg:flex-row content-around">
+            <div class="">
+                <div class="title-border py-3 text-center">Vídeos</div>
+                <div class="flex justify-center flex-col">
                     <VideoMini />
                     <VideoMini />
                     <VideoMini />
