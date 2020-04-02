@@ -12,8 +12,8 @@
 
     export let target;
     export let p5;
-    export let width = 960;
-    export let height = 540;
+    export let width = 500;
+    export let height = 500;
     export let movida = 'movida';
 
     $: cosa = movida;
@@ -59,7 +59,7 @@
     }
 
     export function setup() {
-        canvas = p5.createCanvas(960, 540);
+        canvas = p5.createCanvas(500, 500);
         canvas.mousePressed(canvasMousePressed);
         video = p5.createVideo('elvis.mp4', videoLoaded);
         poseNet = ml5.poseNet(video, modelReady);
@@ -128,7 +128,7 @@
     }
 
     function videoLoaded() {
-        video.size(960, 540);
+        video.size(500, 500);
     }
 
     function canvasMousePressed() {
