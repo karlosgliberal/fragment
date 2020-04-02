@@ -1,4 +1,4 @@
-<div class="video-card m-4 flex items-center justify-center" style="">
+<div class="video-card m-2 flex items-center justify-center" style="">
 
     <div class="absolute">
         <img src="playermini.svg" alt="Play" />
