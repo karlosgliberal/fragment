@@ -1,9 +1,5 @@
 <script>
-    // Sets up a p5 Canvas with Svelte
-    // You typically won't need to worry about this file :)
-
     import { onMount } from 'svelte';
-
     export let sketch;
 
     // Default canvas size
@@ -11,6 +7,7 @@
     const height = 256;
 
     const props = { ...$$props };
+
     delete props.sketch;
     if ('p5' in props)
         console.warn('p5 has been passed into props, it will be ignored');
@@ -49,7 +46,6 @@
             }, canvasContainer);
         }
     }
-
     function addHooks(p5Target, instance) {
         const setter = instance.$set;
         if (typeof setter !== 'function') {
@@ -92,6 +88,8 @@
                 if (key === 'setup') {
                     const setup = fn;
                     p5Target[key] = (...args) => {
+                        console.log(...args);
+
                         p5Target.width = width;
                         p5Target.height = height;
                         return setup.call(instance, ...args);
@@ -103,6 +101,19 @@
 </script>
 
 <main>
-    <div bind:this={canvasContainer} class="canvas-container xl:pl-3" />
-    <div bind:this={propContainer} />
+    <div class="flex flex-col xl:flex-row pt-12 mt-2">
+        <div class="flex justify-center">
+            <div class="bg-white xl:px-5 px-2 mx-2 xl:mx-10">
+                <div class="flex content-center flex-col">
+                    <div class="pt-4">
+                        <div bind:this={propContainer} />
+                        <!-- <Dancehuman on:message={handleMessage} /> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center column justify-center">
+            <div bind:this={canvasContainer} class="canvas-container xl:pl-3" />
+        </div>
+    </div>
 </main>
