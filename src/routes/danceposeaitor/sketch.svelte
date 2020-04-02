@@ -245,3 +245,4 @@
 </script>
 
 <button on:click={sayHello}>.</button>
+<h1>hola</h1>
