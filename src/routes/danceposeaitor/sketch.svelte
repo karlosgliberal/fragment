@@ -250,11 +250,10 @@
 
 <div id="movida">
     <Dancehuman on:message={handleMessage} />
-    <div class="container mx-auto py-10">
-        <div class="title-border py-3">Vídeos</div>
-        <div
-            class="flex justify-center xl:justify-around flex-wrap flex-column
-            lg:flex-row content-around">
+    <div class="">
+        <div class="title-border text-center">Vídeos</div>
+        <div class="flex flex-col justify-center content-center">
+
             <VideoMini on:message={handleMessageVideo} />
             <VideoMini />
             <VideoMini />
