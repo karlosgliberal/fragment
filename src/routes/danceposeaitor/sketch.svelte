@@ -13,7 +13,8 @@
 
     function handleMessageVideo(event) {
         videoFile = event.detail.name;
-        video.stop();
+        pause = true;
+        video.remove();
     }
 
     export let target;
@@ -65,12 +66,8 @@
     export function setup() {
         canvas = p5.createCanvas(700, 525);
         canvas.mousePressed(canvasMousePressed);
-        video = p5.createVideo(videoFile + '.mp4', videoLoaded);
-        poseNet = ml5.poseNet(video, modelReady);
-        poseNet.on('pose', function(results) {
-            poses = results;
-        });
-        video.hide();
+        initMl5Video();
+
         colors[0] = p5.color(247, 23, 53, 220);
         colors[1] = p5.color(65, 234, 212, 220);
         colors[2] = p5.color(255, 159, 28, 220);
@@ -85,6 +82,15 @@
         p5.strokeJoin(p5.ROUND);
         p5.textAlign(p5.CENTER, p5.CENTER);
         p5.textSize(40);
+    }
+
+    function initMl5Video() {
+        video = p5.createVideo(videoFile + '.mp4', videoLoaded);
+        poseNet = ml5.poseNet(video, modelReady);
+        poseNet.on('pose', function(results) {
+            poses = results;
+        });
+        video.hide();
     }
 
     export function draw() {
