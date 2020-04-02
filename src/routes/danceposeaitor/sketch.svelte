@@ -1,11 +1,8 @@
 <script>
-    import { goto, stores } from '@sapper/app';
+    import { goto } from '@sapper/app';
     import { createEventDispatcher } from 'svelte';
     import Dancehuman from './Dancehuman.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
-
-    const { preloading, page, session } = stores();
-    console.log(page);
 
     let movida = 0.2;
     let videoFile = 'elvis';
@@ -23,6 +20,7 @@
     export let p5;
     export let width = 700;
     export let height = 520;
+
     $: radius = movida;
 
     let targetP5 = target;
@@ -58,9 +56,12 @@
     var choreography = true;
     var videoImagen = true;
 
+    function preload() {}
+
     function modelReady() {
         //select("#status").html("Model Loaded");
     }
+
     export function setup() {
         canvas = p5.createCanvas(700, 525);
         canvas.mousePressed(canvasMousePressed);
@@ -73,6 +74,10 @@
         colors[0] = p5.color(247, 23, 53, 220);
         colors[1] = p5.color(65, 234, 212, 220);
         colors[2] = p5.color(255, 159, 28, 220);
+
+        colors[3] = p5.color(247, 23, 53, 220);
+        colors[4] = p5.color(255, 255, 255, 220);
+        colors[5] = p5.color(1, 22, 39, 220);
 
         p5.strokeWeight(2);
         p5.fill(255);
@@ -95,6 +100,7 @@
                 video.play();
             }
         }
+
         video.volume(volumen);
         p5.image(video, 0, 0, width, height);
         drawParticles(paso);
