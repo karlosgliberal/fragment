@@ -263,6 +263,6 @@
     }
 </script>
 
-<button on:click={sayHello}>Click to say hello</button>
+<button on:click={sayHello}>.</button>
 <!-- Wire up the GUI to your props -->
 <Slider label="Radius" bind:value={radius} />

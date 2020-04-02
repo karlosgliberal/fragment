@@ -244,4 +244,4 @@
     }
 </script>
 
-<button on:click={sayHello}>Click to say hello</button>
+<button on:click={sayHello}>.</button>

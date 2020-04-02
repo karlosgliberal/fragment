@@ -102,40 +102,6 @@
     }
 </script>
 
-<style>
-    main {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-    }
-    .canvas-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
-        flex-basis: 60%;
-        min-width: 200px;
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-    /* .props-container {
-        padding: 20px;
-        box-sizing: border-box;
-        flex-basis: 300px;
-        min-width: 200px;
-        max-width: 700px;
-        flex-grow: 1;
-        flex-shrink: 1;
-        height: 100%;
-        background: hsl(0, 0%, 95%);
-        border-left: 4px solid hsl(10, 0%, 90%);
-    } */
-</style>
-
 <main>
     <div bind:this={canvasContainer} class="canvas-container" />
     <div bind:this={propContainer} />
