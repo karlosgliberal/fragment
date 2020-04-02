@@ -32,7 +32,7 @@
 
         </div>
         <div
-            class="w-full xl:w-2/3 flex items-center justify-center
+            class="w-full xl:w-2/3 flex Xitems-center Xjustify-center
             overflow-hidden">
             <P5Canvas sketch={SimpleSketch} width="960" height="540" />
 

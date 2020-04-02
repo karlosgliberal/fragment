@@ -14,7 +14,7 @@
     </div>
     <div class="w-1/3 flex items-center justify-end h-6">
         <div class="pr-2">
-            <a class="uppercase Xfont-bold text-white" href=".">About</a>
+            <a class="uppercase font-bold text-white" href=".">About</a>
         </div>
     </div>
 </div>
