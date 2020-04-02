@@ -1,25 +1,28 @@
 <script>
-    import { goto } from '@sapper/app';
+    import { goto, stores } from '@sapper/app';
     import { createEventDispatcher } from 'svelte';
     import Dancehuman from './Dancehuman.svelte';
+    import VideoMini from '../../components/VideoMini.svelte';
 
-    const dispatch = createEventDispatcher();
+    const { preloading, page, session } = stores();
+    console.log(page);
+
     let movida = 0.2;
+    let videoFile = 'elvis';
 
-    function holaMovida() {
-        dispatch('message', {
-            texto: 'Hello!',
-        });
-    }
     function handleMessage(event) {
         movida = 20;
+    }
+
+    function handleMessageVideo(event) {
+        videoFile = event.detail.name;
+        video.stop();
     }
 
     export let target;
     export let p5;
     export let width = 700;
     export let height = 520;
-
     $: radius = movida;
 
     let targetP5 = target;
@@ -55,16 +58,13 @@
     var choreography = true;
     var videoImagen = true;
 
-    export function preload() {}
-
     function modelReady() {
         //select("#status").html("Model Loaded");
     }
-
     export function setup() {
         canvas = p5.createCanvas(700, 525);
         canvas.mousePressed(canvasMousePressed);
-        video = p5.createVideo('elvis.mp4', videoLoaded);
+        video = p5.createVideo(videoFile + '.mp4', videoLoaded);
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;
@@ -73,10 +73,6 @@
         colors[0] = p5.color(247, 23, 53, 220);
         colors[1] = p5.color(65, 234, 212, 220);
         colors[2] = p5.color(255, 159, 28, 220);
-
-        colors[3] = p5.color(247, 23, 53, 220);
-        colors[4] = p5.color(255, 255, 255, 220);
-        colors[5] = p5.color(1, 22, 39, 220);
 
         p5.strokeWeight(2);
         p5.fill(255);
@@ -99,7 +95,6 @@
                 video.play();
             }
         }
-
         video.volume(volumen);
         p5.image(video, 0, 0, width, height);
         drawParticles(paso);
@@ -247,4 +242,18 @@
     }
 </script>
 
-<Dancehuman on:message={handleMessage} />
+<div id="movida">
+    <Dancehuman on:message={handleMessage} />
+    <div class="container mx-auto py-10">
+        <div class="title-border py-3">Vídeos</div>
+        <div
+            class="flex justify-center xl:justify-around flex-wrap flex-column
+            lg:flex-row content-around">
+            <VideoMini on:message={handleMessageVideo} />
+            <VideoMini />
+            <VideoMini />
+            <VideoMini />
+
+        </div>
+    </div>
+</div>
