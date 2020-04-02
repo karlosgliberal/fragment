@@ -101,19 +101,19 @@
 </script>
 
 <main>
-    <div class="flex flex-col xl:flex-row pt-12 mt-2">
+    <div bind:this={propContainer} />
+
+    <div bind:this={canvasContainer} class="canvas-container xl:pl-3" />
+
+    <!-- <div class="flex flex-col xl:flex-row pt-12 mt-2">
         <div class="flex justify-center">
             <div class="bg-white xl:px-5 px-2 mx-2 xl:mx-10">
                 <div class="flex content-center flex-col">
                     <div class="pt-4">
-                        <div bind:this={propContainer} />
-                        <!-- <Dancehuman on:message={handleMessage} /> -->
                     </div>
                 </div>
             </div>
         </div>
-        <div class="flex items-center column justify-center">
-            <div bind:this={canvasContainer} class="canvas-container xl:pl-3" />
-        </div>
-    </div>
+        <div class="flex items-center column justify-center" />
+    </div> -->
 </main>

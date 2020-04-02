@@ -254,17 +254,20 @@
     }
 </script>
 
-<div id="movida">
+<!-- <div class="interfaz">
+
     <Dancehuman on:message={handleMessage} />
+    <VideoMini on:message={handleMessageVideo} />
+    <VideoMini />
+    <VideoMini />
+    <VideoMini />
+</div> -->
+<!-- <div id="movida">
     <div class="">
         <div class="title-border text-center">Vídeos</div>
         <div class="flex flex-col justify-center content-center">
 
-            <VideoMini on:message={handleMessageVideo} />
-            <VideoMini />
-            <VideoMini />
-            <VideoMini />
 
         </div>
     </div>
-</div>
+</div> -->
