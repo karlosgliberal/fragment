@@ -1,6 +1,11 @@
 <script>
-    function movida() {
-        alert('movida');
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
+
+    function sayHello() {
+        dispatch('message', {
+            radius: 10,
+        });
     }
 </script>
 
@@ -14,7 +19,7 @@
         fill-rule="evenodd">
         <g id="dancehuman">
             <g id="circulos" fill="#FF2200" fill-rule="nonzero">
-                <circle on:click={movida} id="wrist" cx="6" cy="233" r="6" />
+                <circle on:click={sayHello} id="wrist" cx="6" cy="233" r="6" />
                 <circle id="wrist" cx="354" cy="242" r="6" />
                 <circle id="elbow" cx="281" cy="170" r="6" />
                 <circle id="elbow" cx="79" cy="162" r="6" />

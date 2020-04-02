@@ -1,22 +1,26 @@
 <script>
     import { goto } from '@sapper/app';
     import { createEventDispatcher } from 'svelte';
+    import Dancehuman from './Dancehuman.svelte';
 
     const dispatch = createEventDispatcher();
+    let movida = 0.2;
 
-    function sayHello() {
+    function holaMovida() {
         dispatch('message', {
-            text: 'Hello!',
+            texto: 'Hello!',
         });
+    }
+    function handleMessage(event) {
+        movida = 20;
     }
 
     export let target;
     export let p5;
     export let width = 500;
     export let height = 500;
-    export let movida = 'movida';
 
-    $: cosa = movida;
+    $: radius = movida;
 
     let targetP5 = target;
     let classifier;
@@ -50,7 +54,6 @@
     var pause = false;
     var choreography = true;
     var videoImagen = true;
-    let radius = 0.5;
 
     export function preload() {}
 
@@ -244,5 +247,4 @@
     }
 </script>
 
-<button on:click={sayHello}>.</button>
-<h1>hola</h1>
+<Dancehuman on:message={handleMessage} />

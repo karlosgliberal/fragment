@@ -3,12 +3,14 @@
     import NavSlim from '../../components/NavSlim.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
     import Footer from '../../components/Footer.svelte';
-    import Dancehuman from './Dancehuman.svelte';
+    // import Dancehuman from './Dancehuman.svelte';
     import SimpleSketch from './sketch.svelte';
     import P5Canvas from '../../components/P5Canvas.svelte';
 
+    $: radius = 0.2;
     function handleMessage(event) {
-        alert(event.detail.text);
+        alert(event.detail.radius);
+        // radius = event.detail.radius;
     }
 </script>
 
@@ -23,7 +25,7 @@
                 <div class="flex content-center flex-col">
 
                     <div class="pt-4">
-                        <Dancehuman />
+                        <!-- <Dancehuman on:message={handleMessage} /> -->
                     </div>
                 </div>
 
