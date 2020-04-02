@@ -4,7 +4,7 @@
     }
 </script>
 
-<svg width="360px" height="506px">
+<svg width="300px" height="420px">
     <title>dancehuman</title>
     <g
         id="Page-1"

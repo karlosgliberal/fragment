@@ -18,8 +18,8 @@ body {
 }
 
 .video-card {
-    width: 190px;
-    height: 140px;
+    width: 150px;
+    height: 110px;
 
     @apply transition duration-150 ease-in;
 }
@@ -39,13 +39,13 @@ a:hover {
 }
 
 .title-border::before {
-    position: relative;
+    /* position: relative;
     top: -5px;
     margin-right: 7px;
     content: "";
     display: inline-block;
     width: 20px;
-    height: 2px;
+    height: 2px; */
 
     @apply bg-darkblue;
 }

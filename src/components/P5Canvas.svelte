@@ -103,6 +103,6 @@
 </script>
 
 <main>
-    <div bind:this={canvasContainer} class="canvas-container" />
+    <div bind:this={canvasContainer} class="canvas-container xl:pl-3" />
     <div bind:this={propContainer} />
 </main>
