@@ -33,13 +33,13 @@
 
         </div>
         <div class="flex items-center column justify-center">
-            <P5Canvas sketch={SimpleSketch} width="560" height="540" />
+            <P5Canvas sketch={SimpleSketch} width="700" height="525" />
+
             <div class="container mx-auto py-10">
-                <div class="title-border py-3">Play with more videos</div>
+                <div class="title-border py-3">Vídeos</div>
                 <div
                     class="flex justify-center xl:justify-around flex-wrap
                     flex-column lg:flex-row content-around">
-                    <VideoMini />
                     <VideoMini />
                     <VideoMini />
                     <VideoMini />
