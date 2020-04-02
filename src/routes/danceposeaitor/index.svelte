@@ -14,28 +14,17 @@
     }
 </script>
 
-<div class="bg-white">
+<div class="bg-black">
 
     <NavSlim />
-    <div class="flex">
 
-        <P5Canvas sketch={SimpleSketch} width="700" height="525" />
-    </div>
-    <!-- <div class="flex flex-col xl:flex-row pt-12 mt-2"> -->
+    <div class="flex flex-col xl:flex-row pt-12 mt-2">
 
-    <!-- <div class="flex items-center column justify-center">
+        <div class="flex items-center justify-center overflow-hidden">
+            <P5Canvas sketch={SimpleSketch} width="960" height="540" />
 
-            <div class="">
-                <div class="title-border py-3 text-center">Vídeos</div>
-                <div class="flex justify-center flex-col">
-                    <VideoMini />
-                    <VideoMini />
-                    <VideoMini />
-                    <VideoMini />
-                </div>
-            </div>
         </div>
-    </div> -->
+    </div>
 
     <Page />
     <Footer />
