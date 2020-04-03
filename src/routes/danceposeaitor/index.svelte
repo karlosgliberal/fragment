@@ -16,11 +16,16 @@
 
 <div class="flex flex-col justify-between w-screen h-screen">
     <NavSlim />
-    <div
-        class="flex items-center justify-center border border-red-600 border-1">
+    <div class="flex items-center justify-center">
         <div class="flex justify-center content-center">
             <P5Canvas sketch={SimpleSketch} width="700" height="525" />
         </div>
+        <!-- <div class="flex-col p-4 text-center">
+            <VideoMini />
+            <VideoMini />
+            <VideoMini />
+            <VideoMini />
+        </div> -->
     </div>
     <Footer />
 </div>
