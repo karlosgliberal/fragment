@@ -1,4 +1,4 @@
-<div class="flex justify-end bg-black fixed inset-x-0 bottom-0 ">
+<div class="flex justify-end bg-black">
 
     <div class="flex content-center pr-3 pt-2">
         <div>
