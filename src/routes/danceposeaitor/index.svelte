@@ -14,7 +14,7 @@
     }
 </script>
 
-<div class="flex flex-col justify-around w-screen h-screen">
+<div class="flex flex-col justify-between w-screen h-screen">
     <NavSlim />
     <div
         class="flex items-center justify-center border border-red-600 border-1">
