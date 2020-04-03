@@ -14,18 +14,16 @@
     }
 </script>
 
-<div class="bg-black">
+<div class="bg-blackX">
 
     <NavSlim />
-
-    <div class="flex flex-col xl:flex-row pt-12 mt-2">
-
-        <div class="flex items-center justify-center overflow-hidden">
-            <P5Canvas sketch={SimpleSketch} width="960" height="540" />
-
+    <div
+        class="flex items-center justify-center h-full border border-red-600
+        border-1">
+        <div class="flex justify-center content-center">
+            <P5Canvas sketch={SimpleSketch} width="700" height="525" />
         </div>
     </div>
 
-    <Page />
-    <Footer />
+    <!-- <Footer /> -->
 </div>
