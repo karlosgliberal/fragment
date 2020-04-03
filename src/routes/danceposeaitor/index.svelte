@@ -20,12 +20,6 @@
         <div class="flex justify-center content-center">
             <P5Canvas sketch={SimpleSketch} width="700" height="525" />
         </div>
-        <!-- <div class="flex-col p-4 text-center">
-            <VideoMini />
-            <VideoMini />
-            <VideoMini />
-            <VideoMini />
-        </div> -->
     </div>
     <Footer />
 </div>

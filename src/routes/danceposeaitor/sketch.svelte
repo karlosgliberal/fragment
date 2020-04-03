@@ -5,18 +5,9 @@
     import VideoMini from '../../components/VideoMini.svelte';
 
     let gui, pis;
-
     let movida = 0.2;
-
-    gui = new dat.GUI();
-    pis = new Radio();
-    gui.add(pis, 'r', 0, 21);
-
     let videoFile = 'elvis';
 
-    function Radio() {
-        this.r = 60;
-    }
     function handleMessage(event) {
         movida = 20;
     }
@@ -31,6 +22,7 @@
     export let p5;
     export let width = 700;
     export let height = 520;
+
     let colores, ball;
     $: radius = movida;
     let targetP5 = target;
@@ -76,6 +68,10 @@
         canvas = p5.createCanvas(700, 525);
         canvas.mousePressed(canvasMousePressed);
         initMl5Video();
+        gui = new dat.GUI();
+        pis = new Radio();
+
+        gui.add(pis, 'r', 0, 21);
 
         colors[0] = p5.color(247, 23, 53, 220);
         colors[1] = p5.color(65, 234, 212, 220);
@@ -139,6 +135,10 @@
                 }
             }
         }
+    }
+
+    function Radio() {
+        this.r = 60;
     }
 
     function stopSketch() {
@@ -262,21 +262,3 @@
         }
     }
 </script>
-
-<!-- <div class="interfaz">
-
-    <Dancehuman on:message={handleMessage} />
-    <VideoMini on:message={handleMessageVideo} />
-    <VideoMini />
-    <VideoMini />
-    <VideoMini />
-</div> -->
-<!-- <div id="movida">
-    <div class="">
-        <div class="title-border text-center">Vídeos</div>
-        <div class="flex flex-col justify-center content-center">
-
-
-        </div>
-    </div>
-</div> -->
