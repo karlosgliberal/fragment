@@ -4,20 +4,14 @@
     import Dancehuman from './Dancehuman.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
 
-    let gui;
-
-    onMount(() => {
-        import('dat.gui').then(dat => {
-            // loading dat.GUI
-            gui = new dat.GUI();
-            console.log(gui);
-            radioM = new Radio();
-
-            gui.add(radioM, 'r', 0, 21);
-        });
-    });
+    let gui, pis;
 
     let movida = 0.2;
+
+    gui = new dat.GUI();
+    pis = new Radio();
+
+    gui.add(pis, 'r', 0, 21);
     let videoFile = 'elvis';
 
     function Radio() {
