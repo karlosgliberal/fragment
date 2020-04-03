@@ -10,7 +10,7 @@
     <NavSlim />
     <div class="flex items-center justify-center mr-24">
         <div class="flex justify-center content-center pl-100">
-            <div id="datGui" class="text-black" />
+            <div id="datGui" class="datGui text-black" />
             <P5Canvas sketch={SimpleSketch} width="960" height="540" />
         </div>
     </div>

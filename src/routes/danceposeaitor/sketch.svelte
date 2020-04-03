@@ -4,7 +4,7 @@
     import Dancehuman from './Dancehuman.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
 
-    let gui, pis;
+    let gui, pis, clip;
     let movida = 0.8;
     let videoFile = 'elvis';
 
@@ -45,7 +45,7 @@
 
     let listVideoClip = ['elvis', 'fredand'];
 
-    var volumen = 0.8;
+    var volumen = 0.1;
     var sound = false;
     var pause = false;
     var choreography = false;
@@ -68,7 +68,13 @@
         gui.add(movida, 'radio', 0, 2);
         gui.add(movida, 'displayOutline');
         gui.add(movida, 'listBodyPart', bodyPoint);
-        gui.add(movida, 'listClip', listVideoClip);
+        clip = gui.add(movida, 'listClip', listVideoClip);
+
+        clip.onFinishChange(function(value) {
+            console.log(video.remvoe());
+
+            // initMl5Video(value);
+        });
 
         initMl5Video();
         colors[0] = p5.color(247, 23, 53, 220);
@@ -87,8 +93,8 @@
         p5.textSize(40);
     }
 
-    function initMl5Video() {
-        video = p5.createVideo(movida.listiClip + '.mp4', videoLoaded);
+    function initMl5Video(clip) {
+        video = p5.createVideo(movida.listClip + '.mp4', videoLoaded);
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;
