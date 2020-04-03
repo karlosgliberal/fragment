@@ -1,12 +1,22 @@
 <script>
     import { goto } from '@sapper/app';
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
     import Dancehuman from './Dancehuman.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
 
+    let gui, pis;
+
     let movida = 0.2;
+
+    gui = new dat.GUI();
+    pis = new Radio();
+
+    gui.add(pis, 'r', 0, 21);
     let videoFile = 'elvis';
 
+    function Radio() {
+        this.r = 60;
+    }
     function handleMessage(event) {
         movida = 20;
     }
@@ -21,9 +31,8 @@
     export let p5;
     export let width = 700;
     export let height = 520;
-
+    let colores, ball;
     $: radius = movida;
-
     let targetP5 = target;
     let classifier;
     let img;

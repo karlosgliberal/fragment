@@ -17,6 +17,10 @@
     <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js">
 
     </script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js">
+
+    </script>
 </svelte:head>
 
 <slot />
