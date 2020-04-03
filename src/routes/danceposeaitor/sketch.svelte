@@ -5,26 +5,17 @@
     import VideoMini from '../../components/VideoMini.svelte';
 
     let gui, pis;
-    let movida = 0.2;
+    let movida = 0.8;
     let videoFile = 'elvis';
-
-    function handleMessage(event) {
-        movida = 20;
-    }
-
-    function handleMessageVideo(event) {
-        videoFile = event.detail.name;
-        pause = true;
-        video.remove();
-    }
 
     export let target;
     export let p5;
-    export let width = 700;
-    export let height = 520;
+    export let width = 960;
+    export let height = 540;
 
     let colores, ball;
-    $: radius = movida;
+    $: radius = movida.r;
+
     let targetP5 = target;
     let classifier;
     let img;
@@ -40,7 +31,7 @@
     const canvasScale = 0.5;
     let clicked = false;
     let paso = 'Wrist';
-    var bodyPoint = [
+    let bodyPoint = [
         //"Nose",
         'Wrist',
         'Eye',
@@ -52,10 +43,12 @@
         'Ankle',
     ];
 
+    let listVideoClip = ['elvis', 'fredand'];
+
     var volumen = 0.8;
     var sound = false;
     var pause = false;
-    var choreography = true;
+    var choreography = false;
     var videoImagen = true;
 
     function preload() {}
@@ -65,14 +58,19 @@
     }
 
     export function setup() {
-        canvas = p5.createCanvas(700, 525);
+        canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
+        gui = new dat.GUI({ autoPlace: false });
+        var customContainer = document.getElementById('datGui');
+        customContainer.appendChild(gui.domElement);
+
+        movida = new MyGui();
+        gui.add(movida, 'radio', 0, 2);
+        gui.add(movida, 'displayOutline');
+        gui.add(movida, 'listBodyPart', bodyPoint);
+        gui.add(movida, 'listClip', listVideoClip);
+
         initMl5Video();
-        gui = new dat.GUI();
-        pis = new Radio();
-
-        gui.add(pis, 'r', 0, 21);
-
         colors[0] = p5.color(247, 23, 53, 220);
         colors[1] = p5.color(65, 234, 212, 220);
         colors[2] = p5.color(255, 159, 28, 220);
@@ -90,7 +88,7 @@
     }
 
     function initMl5Video() {
-        video = p5.createVideo(videoFile + '.mp4', videoLoaded);
+        video = p5.createVideo(movida.listiClip + '.mp4', videoLoaded);
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;
@@ -99,6 +97,8 @@
     }
 
     export function draw() {
+        radius = movida.radio;
+        paso = movida.listBodyPart;
         p5.background(0);
         if (!clicked) {
             p5.text('PLAY', width / 2, height / 2);
@@ -137,8 +137,11 @@
         }
     }
 
-    function Radio() {
-        this.r = 60;
+    function MyGui() {
+        this.radio = 0.2;
+        this.displayOutline = false;
+        this.listBodyPart = 'Wrist';
+        this.listClip = 'fredand';
     }
 
     function stopSketch() {
@@ -147,7 +150,7 @@
     }
 
     function videoLoaded() {
-        video.size(700, 525);
+        video.size(960, 540);
     }
 
     function canvasMousePressed() {
