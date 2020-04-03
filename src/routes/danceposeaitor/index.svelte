@@ -14,16 +14,13 @@
     }
 </script>
 
-<div class="bg-blackX">
-
+<div class="flex flex-col justify-around">
     <NavSlim />
     <div
-        class="flex items-center justify-center h-full border border-red-600
-        border-1">
+        class="flex items-center justify-center border border-red-600 border-1">
         <div class="flex justify-center content-center">
             <P5Canvas sketch={SimpleSketch} width="700" height="525" />
         </div>
     </div>
-
-    <!-- <Footer /> -->
+    <Footer />
 </div>
