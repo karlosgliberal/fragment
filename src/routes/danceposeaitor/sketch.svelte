@@ -10,8 +10,8 @@
 
     gui = new dat.GUI();
     pis = new Radio();
-
     gui.add(pis, 'r', 0, 21);
+
     let videoFile = 'elvis';
 
     function Radio() {
