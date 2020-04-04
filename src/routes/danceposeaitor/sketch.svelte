@@ -11,9 +11,11 @@
     export let height = 540;
 
     const { page } = stores();
-    const queryClip = $page.query;
-    console.log(queryClip.video);
+    let queryClip = $page.query;
 
+    if (typeof queryClip.video === 'undefined') {
+        queryClip.video = 'fred';
+    }
     let gui, pis, clip;
     let movida = 0.8;
 

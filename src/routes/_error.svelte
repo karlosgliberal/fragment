@@ -9,7 +9,6 @@
     <title>{status}</title>
 </svelte:head>
 
-<h1>Mvida</h1>
 <h1>{status}</h1>
 
 <p>{error.message}</p>
