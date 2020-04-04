@@ -4,7 +4,9 @@
 
     function handleSubmit() {
         console.log('mdfasd');
-        goto(`http://localhost:3000/danceposeaitor?video=${videoname}`);
+        window.location.replace(
+            `http://localhost:3000/danceposeaitor?video=${videoname}`
+        );
     }
 </script>
 

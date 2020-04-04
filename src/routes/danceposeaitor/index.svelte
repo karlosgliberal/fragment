@@ -15,9 +15,12 @@
 
 <div class="flex flex-col justify-between w-screen h-screen">
     <NavSlim />
-    <div class="flex items-center justify-center mr-24">
+    <div class="flex items-center justify-center">
         <div class="flex justify-center content-center pl-100">
             <div id="datGui" class="datGui text-black" />
+            <div id="logodp" class="fixed m-24">
+                <img src="logodp.gif" alt="" />
+            </div>
             <P5Canvas sketch={SimpleSketch} width="960" height="540" />
         </div>
         <div class="flex-col p-4 text-center">

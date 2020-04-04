@@ -54,18 +54,22 @@
     var pause = false;
     var choreography = false;
     var videoImagen = true;
-
-    function preload() {}
+    let textoIntro = 'Load Video';
 
     function modelReady() {
-        //select("#status").html("Model Loaded");
+        console.log('cargando el  modelos');
+        let logodpContainer = document.getElementById('logodp');
+        logodpContainer.remove();
+        textoIntro = 'play';
+        p5.textSize(40);
+        p5.text(textoIntro, width / 2, height / 2);
     }
 
     export function setup() {
         canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
         gui = new dat.GUI({ autoPlace: false });
-        var customContainer = document.getElementById('datGui');
+        let customContainer = document.getElementById('datGui');
         customContainer.appendChild(gui.domElement);
 
         movida = new MyGui();
@@ -75,10 +79,7 @@
         clip = gui.add(movida, 'listClip', listVideoClip);
 
         clip.onFinishChange(function(value) {
-            console.log('fire');
-
             video.hide();
-            //p5.removeElements();
         });
 
         initMl5Video();
@@ -88,7 +89,7 @@
         p5.angleMode(p5.DEGREES);
         p5.strokeJoin(p5.ROUND);
         p5.textAlign(p5.CENTER, p5.CENTER);
-        p5.textSize(40);
+        p5.textSize(24);
     }
 
     function initMl5Video(clip) {
@@ -105,7 +106,7 @@
         paso = movida.listBodyPart;
         p5.background(0);
         if (!clicked) {
-            p5.text('PLAY', width / 2, height / 2);
+            p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
         }
 
         if (clicked) {
@@ -149,7 +150,9 @@
     }
 
     function videoLoaded() {
+        textoIntro = 'Load IA model';
         video.size(960, 540);
+        p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
     }
 
     function canvasMousePressed() {
