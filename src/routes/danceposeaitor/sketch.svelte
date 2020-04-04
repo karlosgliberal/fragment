@@ -1,18 +1,21 @@
 <script>
-    import { goto } from '@sapper/app';
+    import { goto, stores } from '@sapper/app';
+
     import { createEventDispatcher, onMount } from 'svelte';
     import Dancehuman from './Dancehuman.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
     import { listColor } from './Colors.svelte';
-
     export let target;
     export let p5;
     export let width = 960;
     export let height = 540;
 
+    const { page } = stores();
+    const queryClip = $page.query;
+    console.log(queryClip.video);
+
     let gui, pis, clip;
     let movida = 0.8;
-    let videoFile = 'elvis';
 
     let colores, ball;
     $: radius = movida.r;
@@ -44,7 +47,7 @@
         'Ankle',
     ];
 
-    let listVideoClip = ['elvis', 'fredand'];
+    let listVideoClip = ['elvis', 'fred'];
 
     var volumen = 0.1;
     var sound = false;
@@ -72,9 +75,10 @@
         clip = gui.add(movida, 'listClip', listVideoClip);
 
         clip.onFinishChange(function(value) {
-            console.log(video.remvoe());
+            console.log('fire');
 
-            // initMl5Video(value);
+            video.hide();
+            //p5.removeElements();
         });
 
         initMl5Video();
@@ -141,12 +145,7 @@
         this.radio = 0.2;
         this.displayOutline = false;
         this.listBodyPart = 'Wrist';
-        this.listClip = 'fredand';
-    }
-
-    function stopSketch() {
-        p5.noLoop();
-        goto('.', { replaceState: true });
+        this.listClip = queryClip.video;
     }
 
     function videoLoaded() {
