@@ -3,15 +3,16 @@
     import { createEventDispatcher, onMount } from 'svelte';
     import Dancehuman from './Dancehuman.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
-
-    let gui, pis, clip;
-    let movida = 0.8;
-    let videoFile = 'elvis';
+    import { listColor } from './Colors.svelte';
 
     export let target;
     export let p5;
     export let width = 960;
     export let height = 540;
+
+    let gui, pis, clip;
+    let movida = 0.8;
+    let videoFile = 'elvis';
 
     let colores, ball;
     $: radius = movida.r;
@@ -27,7 +28,7 @@
     let particles = [];
     // let e = new p5.Ease();
     let ox, oy;
-    let colors = [];
+    let colors = listColor();
     const canvasScale = 0.5;
     let clicked = false;
     let paso = 'Wrist';
@@ -77,13 +78,6 @@
         });
 
         initMl5Video();
-        colors[0] = p5.color(247, 23, 53, 220);
-        colors[1] = p5.color(65, 234, 212, 220);
-        colors[2] = p5.color(255, 159, 28, 220);
-
-        colors[3] = p5.color(247, 23, 53, 220);
-        colors[4] = p5.color(255, 255, 255, 220);
-        colors[5] = p5.color(1, 22, 39, 220);
 
         p5.strokeWeight(2);
         p5.fill(255);
