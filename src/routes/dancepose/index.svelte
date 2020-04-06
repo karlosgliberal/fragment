@@ -3,11 +3,21 @@
 </script>
 
 <script>
+    import { stores } from '@sapper/app';
     import NavSlim from '../../components/NavSlim.svelte';
     import Footer from '../../components/Footer.svelte';
     import SimpleSketch from './sketch.svelte';
     import P5Canvas from '../../components/P5Canvas.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
+    import videoData from './video-data.js';
+
+    const { page } = stores();
+    let queryClip = $page.query;
+
+    if (typeof queryClip.video === 'undefined') {
+        queryClip.video = 'lalaland';
+    }
+    // let videoArray = videoData.find(x => x.id === 'lalaland');
 </script>
 
 <div class="flex flex-col justify-between w-screen h-screen bg-a">
@@ -23,10 +33,9 @@
         <div
             class=" flex flex-col videosmini justify-between h-full text-center
             pl-4 pt-2">
-            <VideoMini />
-            <VideoMini videoname="fred" />
-            <VideoMini />
-            <VideoMini />
+            {#each videoData as { id, img }, i}
+                <VideoMini {id} {img} />
+            {/each}
         </div>
 
     </div>

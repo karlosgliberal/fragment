@@ -1,10 +1,11 @@
 <script>
     import { goto } from '@sapper/app';
-    export let videoname = 'elvis';
+    export let id = 'lalaland';
+    export let img = 'lalaland';
 
     function handleSubmit() {
         console.log('mdfasd');
-        window.location.replace(`/dancepose?video=${videoname}`);
+        window.location.replace(`/dancepose?video=${id}`);
     }
 </script>
 
@@ -15,7 +16,7 @@
     </div>
 
     <div>
-        <img src="video-one-mini.png" alt="Video 1" />
+        <img src={img} alt="Video 1" />
     </div>
 
 </div>
