@@ -18,8 +18,8 @@ body {
 }
 
 .video-card {
-    width: 150px;
-    height: 110px;
+    width: 140px;
+    height: 100px;
     cursor: pointer;
     border-bottom: 7px solid #01aeff;
 }

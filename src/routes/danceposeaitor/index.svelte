@@ -15,7 +15,7 @@
 
 <div class="flex flex-col justify-between w-screen h-screen bg-a">
     <NavSlim />
-    <div class="flex justify-center">
+    <div class="flex flex-col lg:flex-row justify-center">
         <div class="flex justify-center content-center pl-100">
             <div id="datGui" class="datGui text-black" />
             <div id="logodp" class="fixed m-24">
@@ -23,9 +23,7 @@
             </div>
             <P5Canvas sketch={SimpleSketch} width="960" height="540" />
         </div>
-        <div
-            class=" flex flex-col videosmini justify-between h-full text-center
-            pl-4">
+        <div class=" flex flex-col justify-between pl-4 py-2">
             <VideoMini />
             <VideoMini videoname="fred" />
             <VideoMini />
