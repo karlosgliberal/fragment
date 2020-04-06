@@ -14,7 +14,7 @@
     let queryClip = $page.query;
 
     if (typeof queryClip.video === 'undefined') {
-        queryClip.video = 'fred';
+        queryClip.video = 'lalaland';
     }
     let gui, pis, clip;
     let movida = 0.8;
@@ -95,7 +95,7 @@
     }
 
     function initMl5Video(clip) {
-        video = p5.createVideo(movida.listClip + '.mp4', videoLoaded);
+        video = p5.createVideo(movida.listClip + '.webm', videoLoaded);
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;

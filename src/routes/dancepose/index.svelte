@@ -1,11 +1,8 @@
 <script context="module">
-    export async function preload(page, session) {
-        console.log('movdiasssss');
-    }
+    export async function preload(page, session) {}
 </script>
 
 <script>
-    import Page from '../../components/Page.svelte';
     import NavSlim from '../../components/NavSlim.svelte';
     import Footer from '../../components/Footer.svelte';
     import SimpleSketch from './sketch.svelte';
