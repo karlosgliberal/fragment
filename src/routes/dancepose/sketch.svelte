@@ -95,7 +95,10 @@
     }
 
     function initMl5Video(clip) {
-        video = p5.createVideo(movida.listClip + '.webm', videoLoaded);
+        video = p5.createVideo(
+            'videos/' + movida.listClip + '.mp4',
+            videoLoaded
+        );
         poseNet = ml5.poseNet(video, modelReady);
         poseNet.on('pose', function(results) {
             poses = results;
