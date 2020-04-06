@@ -18,8 +18,8 @@ body {
 }
 
 .video-card {
-    width: 150px;
-    height: 110px;
+    width: 140px;
+    height: 100px;
     cursor: pointer;
     border-bottom: 7px solid #01aeff;
 }
@@ -33,7 +33,11 @@ body {
 }
 
 .text-about p {
-    @apply pb-3;
+    @apply pb-5 text-gray-800;
+}
+
+.text-about a {
+    @apply text-gray-600 underline;
 }
 
 .video-card:hover {
@@ -44,6 +48,10 @@ body {
 
 a:hover {
     opacity: 0.8;
+}
+
+strong {
+    @apply font-bold;
 }
 
 .title-border::before {
@@ -60,6 +68,10 @@ a:hover {
 
 .title-border {
     @apply text-lg font-lato font-bold;
+}
+
+.title-medium {
+    @apply font-lato font-bold text-xl pb-3;
 }
 
 .divider-xl {
