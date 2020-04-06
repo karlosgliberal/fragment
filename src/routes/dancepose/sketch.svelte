@@ -1,9 +1,6 @@
 <script>
-    import { goto, stores } from '@sapper/app';
-
+    import { stores } from '@sapper/app';
     import { createEventDispatcher, onMount } from 'svelte';
-    import Dancehuman from './Dancehuman.svelte';
-    import VideoMini from '../../components/VideoMini.svelte';
     import { listColor } from './Colors.svelte';
     export let target;
     export let p5;
