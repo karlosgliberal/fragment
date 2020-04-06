@@ -2,7 +2,7 @@ const videoData = [
     {
         id: 'lalaland',
         title: 'La La Land',
-        img: 'dancepose/lalaland.png',
+        img: 'dancepose/lalaland.svg',
         keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
@@ -11,7 +11,7 @@ const videoData = [
     {
         id: 'fred',
         title: 'Fred Astaire y Ginger Rogers en Sombrero de copa',
-        img: 'dancepose/fred.png',
+        img: 'dancepose/fred.svg',
         keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
@@ -20,7 +20,7 @@ const videoData = [
     {
         id: 'blues',
         title: 'The Blues Brothers',
-        img: 'dancepose/blues.png',
+        img: 'dancepose/blues.svg',
         keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
@@ -29,7 +29,7 @@ const videoData = [
     {
         id: 'rain',
         title: 'Singing In The Rain ',
-        img: 'dancepose/rain.png',
+        img: 'dancepose/rain.svg',
         keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
