@@ -41,7 +41,9 @@
                 <br />
                 Si no cuentas con ello, puedes disfrutar de los vídeos generados
                 con la herramienta en el
-                <a href="/">Instagram</a>
+                <a href="https://www.instagram.com/bikolabs/" target="_blank">
+                    Instagram
+                </a>
                 de #bikolabs.
             </p>
 
