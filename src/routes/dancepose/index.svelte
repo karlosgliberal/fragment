@@ -14,7 +14,7 @@
 </script>
 
 <div class="flex flex-col justify-between w-screen h-screen bg-a">
-    <NavSlim />
+    <NavSlim url="/dancepose/about" />
     <div class="flex justify-center">
         <div class="flex justify-center content-center pl-100">
             <div id="datGui" class="datGui text-black" />
