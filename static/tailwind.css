@@ -9,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=PT+Serif:wght@700&display=swap");
 
 body {
-    @apply bg-graysoft;
+    @apply bg-white;
 }
 
 .container {
@@ -20,8 +20,16 @@ body {
 .video-card {
     width: 150px;
     height: 110px;
+    cursor: pointer;
+    border-bottom: 7px solid #01aeff;
+}
 
-    @apply transition duration-150 ease-in;
+.video-card:first-child {
+    margin-top: 0px !important;
+}
+
+.video-card:last-child {
+    margin-bottom: 0px !important;
 }
 
 .text-about p {
@@ -29,7 +37,7 @@ body {
 }
 
 .video-card:hover {
-    opacity: 0.6;
+    opacity: 0.8;
 
     @apply transition duration-150 ease-out;
 }
@@ -122,7 +130,11 @@ select {
     margin-left: 0 !important;
 }
 
-
 .videosmini:first-child {
     margin-top: 0 !important;
+}
+
+.bg-a {
+    background: rgb(209, 209, 209);
+    background: linear-gradient(277deg, rgba(209, 209, 209, 1) 0%, rgba(255, 255, 255, 1) 23%, rgba(244, 244, 244, 1) 100%);
 }

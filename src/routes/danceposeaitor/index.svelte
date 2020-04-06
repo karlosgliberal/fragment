@@ -13,7 +13,7 @@
     import VideoMini from '../../components/VideoMini.svelte';
 </script>
 
-<div class="flex flex-col justify-between w-screen h-screen">
+<div class="flex flex-col justify-between w-screen h-screen bg-a">
     <NavSlim />
     <div class="flex justify-center">
         <div class="flex justify-center content-center pl-100">
@@ -23,7 +23,9 @@
             </div>
             <P5Canvas sketch={SimpleSketch} width="960" height="540" />
         </div>
-        <div class="flex-col videosmini text-center">
+        <div
+            class=" flex flex-col videosmini justify-between h-full text-center
+            pl-4">
             <VideoMini />
             <VideoMini videoname="fred" />
             <VideoMini />
