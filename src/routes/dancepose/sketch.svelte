@@ -1,15 +1,26 @@
 <script>
-    import { goto } from '@sapper/app';
-    import Data from './slide-data.js';
-    import Slider from '../../components/Slider.svelte';
+    import { goto, stores } from '@sapper/app';
 
+    import { createEventDispatcher, onMount } from 'svelte';
+    import Dancehuman from './Dancehuman.svelte';
+    import VideoMini from '../../components/VideoMini.svelte';
+    import { listColor } from './Colors.svelte';
     export let target;
     export let p5;
     export let width = 960;
     export let height = 540;
-    export let movida = 'movida';
 
-    $: cosa = movida;
+    const { page } = stores();
+    let queryClip = $page.query;
+
+    if (typeof queryClip.video === 'undefined') {
+        queryClip.video = 'fred';
+    }
+    let gui, pis, clip;
+    let movida = 0.8;
+
+    let colores, ball;
+    $: radius = movida.r;
 
     let targetP5 = target;
     let classifier;
@@ -22,11 +33,11 @@
     let particles = [];
     // let e = new p5.Ease();
     let ox, oy;
-    let colors = [];
+    let colors = listColor();
     const canvasScale = 0.5;
     let clicked = false;
     let paso = 'Wrist';
-    var bodyPoint = [
+    let bodyPoint = [
         //"Nose",
         'Wrist',
         'Eye',
@@ -38,48 +49,66 @@
         'Ankle',
     ];
 
+    let listVideoClip = ['elvis', 'fred'];
+
     var volumen = 0.8;
     var sound = false;
     var pause = false;
-    var choreography = true;
+    var choreography = false;
     var videoImagen = true;
-    let radius = 0.5;
-
-    export function preload() {}
+    let textoIntro = 'Load Video';
 
     function modelReady() {
-        //select("#status").html("Model Loaded");
+        console.log('cargando el  modelos');
+        let logodpContainer = document.getElementById('logodp');
+        logodpContainer.remove();
+        textoIntro = 'play';
+        p5.textSize(40);
+        p5.text(textoIntro, width / 2, height / 2);
     }
 
     export function setup() {
         canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
-        video = p5.createVideo('elvis.mp4', videoLoaded);
-        poseNet = ml5.poseNet(video, modelReady);
-        poseNet.on('pose', function(results) {
-            poses = results;
-        });
-        video.hide();
-        colors[0] = p5.color(247, 23, 53, 220);
-        colors[1] = p5.color(65, 234, 212, 220);
-        colors[2] = p5.color(255, 159, 28, 220);
+        gui = new dat.GUI({ autoPlace: false });
+        let customContainer = document.getElementById('datGui');
+        customContainer.appendChild(gui.domElement);
 
-        colors[3] = p5.color(247, 23, 53, 220);
-        colors[4] = p5.color(255, 255, 255, 220);
-        colors[5] = p5.color(1, 22, 39, 220);
+        movida = new MyGui();
+        gui.add(movida, 'radio', 0, 2);
+        gui.add(movida, 'displayOutline');
+        gui.add(movida, 'listBodyPart', bodyPoint);
+        clip = gui.add(movida, 'listClip', listVideoClip);
+
+        clip.onFinishChange(function(value) {
+            video.hide();
+        });
+
+        initMl5Video();
 
         p5.strokeWeight(2);
         p5.fill(255);
         p5.angleMode(p5.DEGREES);
         p5.strokeJoin(p5.ROUND);
         p5.textAlign(p5.CENTER, p5.CENTER);
-        p5.textSize(40);
+        p5.textSize(24);
+    }
+
+    function initMl5Video(clip) {
+        video = p5.createVideo(movida.listClip + '.mp4', videoLoaded);
+        poseNet = ml5.poseNet(video, modelReady);
+        poseNet.on('pose', function(results) {
+            poses = results;
+        });
+        video.hide();
     }
 
     export function draw() {
+        radius = movida.radio;
+        paso = movida.listBodyPart;
         p5.background(0);
         if (!clicked) {
-            p5.text('PLAY', width / 2, height / 2);
+            p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
         }
 
         if (clicked) {
@@ -115,13 +144,17 @@
         }
     }
 
-    function stopSketch() {
-        p5.noLoop();
-        goto('.', { replaceState: true });
+    function MyGui() {
+        this.radio = 0.2;
+        this.displayOutline = false;
+        this.listBodyPart = 'Wrist';
+        this.listClip = queryClip.video;
     }
 
     function videoLoaded() {
+        textoIntro = 'Load IA model';
         video.size(960, 540);
+        p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
     }
 
     function canvasMousePressed() {
@@ -236,11 +269,3 @@
         }
     }
 </script>
-
-<button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    label="Boton"
-    on:click={stopSketch}>
-    ..
-</button>
-<Slider label="Radius" bind:value={radius} />
