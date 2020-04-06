@@ -62,8 +62,8 @@
         console.log('cargando el  modelos');
         let logodpContainer = document.getElementById('logodp');
         logodpContainer.remove();
-        textoIntro = 'play';
-        p5.textSize(40);
+        textoIntro = 'Click to play';
+        p5.textSize(30);
         p5.text(textoIntro, width / 2, height / 2);
     }
 
@@ -155,7 +155,8 @@
     }
 
     function videoLoaded() {
-        textoIntro = 'Load IA model';
+        textoIntro = 'Load IA model...';
+        p5.textSize(25);
         video.size(960, 540);
         p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
     }

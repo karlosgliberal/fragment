@@ -22,7 +22,7 @@
         </div>
         <div
             class=" flex flex-col videosmini justify-between h-full text-center
-            pl-4">
+            pl-4 pt-2">
             <VideoMini />
             <VideoMini videoname="fred" />
             <VideoMini />
