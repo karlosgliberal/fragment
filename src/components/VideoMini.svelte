@@ -4,7 +4,7 @@
 
     function handleSubmit() {
         console.log('mdfasd');
-        window.location.replace(`/danceposeaitor?video=${videoname}`);
+        window.location.replace(`/dancepose?video=${videoname}`);
     }
 </script>
 
