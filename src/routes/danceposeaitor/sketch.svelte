@@ -51,7 +51,7 @@
 
     let listVideoClip = ['elvis', 'fred'];
 
-    var volumen = 0.1;
+    var volumen = 0.8;
     var sound = false;
     var pause = false;
     var choreography = false;

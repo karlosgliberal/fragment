@@ -94,7 +94,7 @@ select {
 .dg .slider {
     float: left;
     width: 66%;
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 0;
     height: 4px !important;
     margin-top: 6px;
@@ -119,5 +119,10 @@ select {
 }
 
 .dg .slider {
-    margin-left: 0px !important;
+    margin-left: 0 !important;
+}
+
+
+.videosmini:first-child {
+    margin-top: 0 !important;
 }
