@@ -145,7 +145,7 @@
     }
 
     function MyGui() {
-        this.radio = 0.2;
+        this.radio = 1;
         this.displayOutline = false;
         this.listBodyPart = 'Wrist';
         this.listClip = queryClip.video;
