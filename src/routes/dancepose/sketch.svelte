@@ -7,6 +7,7 @@
     export let p5;
     export let width = 960;
     export let height = 540;
+    export let target;
 
     const { page } = stores();
     let queryClip = $page.query;
@@ -30,7 +31,8 @@
     let particles = [];
     // let e = new p5.Ease();
     let ox, oy;
-    let colors = listColor();
+
+    let colors = videoContent.color;
     let clicked = false;
     let paso = videoContent.keyPoint;
     let bodyPoint = [
@@ -192,7 +194,7 @@
         let dis = p5.dist(targetX, targetY, X, Y);
         let C;
 
-        C = p5.floor(p5.random(3, 6));
+        C = p5.floor(p5.random(0, 3));
         let Rmax = dis > 20 ? 35 - dis : p5.random(2, 8);
         particles.push(new Particle(X, Y, C, Rmax, paso));
         //  particles.push(new Particle(X, Y, C, Rmax, paso));
