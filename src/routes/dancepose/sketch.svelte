@@ -1,13 +1,11 @@
 <script>
     import { stores } from '@sapper/app';
     import { createEventDispatcher, onMount } from 'svelte';
-    import { listColor } from './Colors.svelte';
     import videoData from './video-data.js';
 
     export let p5;
     export let width = 960;
     export let height = 540;
-    export let target;
 
     const { page } = stores();
     let queryClip = $page.query;
@@ -102,14 +100,7 @@
         video.volume(volumen);
         p5.image(video, 0, 0, width, height);
         drawParticles(paso);
-
-        if (choreography) {
-            if (video.time() >= 29.5 && video.time() <= 53) {
-                paso = 'Ankle';
-            }
-        } else {
-            paso = bodyPoint;
-        }
+        paso = bodyPoint;
 
         for (let i = 0; i < particles.length; i++) {
             particles[i].display();
