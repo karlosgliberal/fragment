@@ -1,5 +1,4 @@
 <script>
-    export let url = '';
     export let segment;
     console.log(segment);
 

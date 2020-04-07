@@ -14,7 +14,7 @@
 <div
     class="flex flex-col justify-between w-screen h-screen bg-gray-900
     overflow-hidden">
-    <NavSlim url="/dancepose/about" {segment} />
+    <NavSlim {segment} />
     <slot />
     <Footer />
 </div>
