@@ -18,9 +18,9 @@ const videoData = [
         size: ['960', '540'],
     },
     {
-        id: 'blues',
-        title: 'The Blues Brothers',
-        img: 'dancepose/blues.svg',
+        id: 'billye',
+        title: 'Billy eliot',
+        img: 'dancepose/billy.svg',
         keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
