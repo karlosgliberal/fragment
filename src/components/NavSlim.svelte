@@ -1,5 +1,6 @@
 <script>
     export let url = '';
+    export let segmnet;
 </script>
 
 <div class="flex bg-black py-3">

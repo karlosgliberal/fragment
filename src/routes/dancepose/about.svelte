@@ -1,14 +1,10 @@
-<script>
-    import NavSlim from '../../components/NavSlim.svelte';
-    import Footer from '../../components/Footer.svelte';
-</script>
-
-<NavSlim />
 <div class="container flex px-10">
     <div class="w-3/12" />
     <div class="pt-10 px-10 w-4/6">
-        <h2 class="font-ptserif font-bold text-5xl pb-4">About US</h2>
-        <div class="font-lato text-about leading-relaxed">
+        <h2 class="font-ptserif text-white font-bold text-5xl pb-4">
+            About US
+        </h2>
+        <div class="font-lato leading-relaxed text-white">
             <p>
                 <strong>DancePose</strong>
                 utiliza modelos de machine learning de reconocimiento de
@@ -54,5 +50,3 @@
 
 <div class="divider-xl" />
 <div class="divider-xl" />
-
-<Footer />

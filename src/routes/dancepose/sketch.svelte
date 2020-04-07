@@ -13,7 +13,7 @@
     if (typeof queryClip.video === 'undefined') {
         queryClip.video = 'lalaland';
     }
-    let gui, pis, clip;
+    let gui, pis, clip, carpertaGui;
     let movida = 0.8;
 
     let colores, ball;
@@ -69,9 +69,11 @@
         customContainer.appendChild(gui.domElement);
 
         movida = new MyGui();
-        gui.add(movida, 'radio', 0, 2);
-        gui.add(movida, 'displayOutline');
-        gui.add(movida, 'listBodyPart', bodyPoint);
+        carpertaGui = gui.addFolder('Select options');
+        carpertaGui.add(movida, 'radio', 0, 2);
+        carpertaGui.add(movida, 'displayOutline');
+        carpertaGui.add(movida, 'listBodyPart', bodyPoint);
+        carpertaGui.open();
 
         initMl5Video();
 
