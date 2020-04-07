@@ -3,7 +3,6 @@
     import Footer from '../../components/Footer.svelte';
 
     export let segment;
-    console.log(segment);
 </script>
 
 <svelte:head>
@@ -13,7 +12,7 @@
 </svelte:head>
 
 <div class="flex flex-col justify-between w-screen h-screen bg-gray-900">
-    <NavSlim url="/dancepose/about" />
+    <NavSlim url="/dancepose/about" {segment} />
     <slot />
     <Footer />
 </div>
