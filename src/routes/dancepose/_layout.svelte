@@ -73,7 +73,7 @@
 </svelte:head>
 
 <div
-    class="flex flex-col justify-between w-screen h-screen bg-white
+    class="flex flex-col justify-between w-screen h-screen bg-gray-400
     overflow-hidden">
     <NavSlim {segment} />
     <slot />

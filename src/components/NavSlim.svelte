@@ -8,7 +8,16 @@
     }
 </script>
 
-<div class="flex bg-black py-3 ">
+<style>
+    .asimetrico {
+        background-image: linear-gradient(#000, #000000);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 56%);
+        /* clip-path: polygon(100% 100%, 0 100%, 0 0, 100% calc(100% - 4vw)); */
+        /* change the calc height to a percentage height to get alternate responsive behavior*/
+    }
+</style>
+
+<div class="flex bg-black py-3 asimetrico pb-16">
     <div class="w-1/3 h-6 flex justify-star items-center" />
     <div class="w-1/3 flex items-center justify-center h-6">
         <div>
