@@ -17,7 +17,6 @@
     }
 
     let videoContent = videoData.find(x => x.id === queryClip.video);
-    console.log(videoContent);
 
     let gui, pis, clip, carpertaGui;
     let myGui = 0.8;
@@ -33,7 +32,6 @@
     let ox, oy;
 
     let colors = videoContent.color;
-    console.log(colors);
 
     let clicked = false;
     let paso = videoContent.keyPoint;
