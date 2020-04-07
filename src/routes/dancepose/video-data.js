@@ -8,7 +8,7 @@ const videoData = [
         particle: 'square',
         size: ['960', '540'],
         color: [
-            [247, 23, 53, 220],
+            [1, 23, 53, 220],
             [65, 234, 212, 220],
             [255, 159, 28, 220],
         ],
@@ -22,7 +22,7 @@ const videoData = [
         particle: 'square',
         size: ['960', '540'],
         color: [
-            [247, 23, 53, 220],
+            [2, 23, 53, 220],
             [255, 0, 255, 220],
             [255, 0, 255, 220],
         ],
@@ -36,7 +36,7 @@ const videoData = [
         particle: 'square',
         size: ['960', '540'],
         color: [
-            [247, 23, 53, 220],
+            [3, 23, 53, 220],
             [65, 234, 212, 220],
             [255, 159, 28, 220],
         ],
@@ -45,12 +45,12 @@ const videoData = [
         id: 'rain',
         title: 'Singing In The Rain ',
         img: 'dancepose/rain.svg',
-        keyPoint: 'Wrist',
+        keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
         size: ['960', '540'],
         color: [
-            [247, 23, 53, 220],
+            [4, 23, 53, 220],
             [65, 234, 212, 220],
             [255, 159, 28, 220],
         ],

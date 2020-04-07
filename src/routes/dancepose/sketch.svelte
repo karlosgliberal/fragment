@@ -16,7 +16,7 @@
         queryClip.video = 'lalaland';
     }
 
-    let videoContent = videoData.find(x => x.id === 'lalaland');
+    let videoContent = videoData.find(x => x.id === queryClip.video);
     console.log(videoContent);
 
     let gui, pis, clip, carpertaGui;
@@ -33,6 +33,8 @@
     let ox, oy;
 
     let colors = videoContent.color;
+    console.log(colors);
+
     let clicked = false;
     let paso = videoContent.keyPoint;
     let bodyPoint = [
