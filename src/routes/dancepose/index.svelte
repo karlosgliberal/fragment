@@ -6,9 +6,9 @@
 </script>
 
 <div class="flex justify-center">
-    <div class="flex justify-center content-center pl-100">
+    <div class="flex justify-center content-center pl-100 wrap-canvas">
         <div id="datGui" class="datGui text-black" />
-        <div id="logodp" class="fixed m-24">
+        <div id="logodp" class="fixed m-24 pl-7">
             <img src="logodp.gif" alt="" />
         </div>
         <P5Canvas sketch={SimpleSketch} width="960" height="540" />
