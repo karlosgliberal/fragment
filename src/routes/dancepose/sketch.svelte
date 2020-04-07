@@ -52,15 +52,6 @@
     var videoImagen = true;
     let textoIntro = 'Load Video';
 
-    function modelReady() {
-        console.log('cargando el  modelos');
-        let logodpContainer = document.getElementById('logodp');
-        logodpContainer.remove();
-        textoIntro = 'Click to play';
-        p5.textSize(30);
-        p5.text(textoIntro, width / 2, height / 2);
-    }
-
     export function setup() {
         canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
@@ -75,7 +66,7 @@
         carpertaGui.add(movida, 'listBodyPart', bodyPoint);
         carpertaGui.open();
 
-        initMl5Video();
+        initVideo();
 
         p5.strokeWeight(2);
         p5.fill(255);
@@ -85,16 +76,11 @@
         p5.textSize(24);
     }
 
-    function initMl5Video(clip) {
+    function initVideo(clip) {
         video = p5.createVideo(
             'dancepose/' + movida.listClip + '.mp4',
             videoLoaded
         );
-        poseNet = ml5.poseNet(video, modelReady);
-        poseNet.on('pose', function(results) {
-            poses = results;
-        });
-        video.hide();
     }
 
     export function draw() {
@@ -150,6 +136,20 @@
         p5.textSize(25);
         video.size(960, 540);
         p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
+        poseNet = ml5.poseNet(video, modelReady);
+        poseNet.on('pose', function(results) {
+            poses = results;
+        });
+        video.hide();
+    }
+
+    function modelReady() {
+        console.log('cargando el  modelos');
+        let logodpContainer = document.getElementById('logodp');
+        logodpContainer.remove();
+        textoIntro = 'Click to play';
+        p5.textSize(30);
+        p5.text(textoIntro, width / 2, height / 2);
     }
 
     function canvasMousePressed() {
