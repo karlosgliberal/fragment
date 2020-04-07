@@ -31,7 +31,7 @@ const videoData = [
         id: 'billye',
         title: 'Billy eliot',
         img: 'dancepose/billy.svg',
-        keyPoint: 'Ankle',
+        keyPoint: 'Shoulder',
         theme: '0',
         particle: 'square',
         size: ['960', '540'],

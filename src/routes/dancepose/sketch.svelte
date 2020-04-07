@@ -50,7 +50,6 @@
 
     export function setup() {
         canvas = p5.createCanvas(960, 540);
-        canvas.mousePressed(canvasMousePressed);
         gui = new dat.GUI({ autoPlace: false });
 
         guiContainer = document.getElementById('datGui');
@@ -59,7 +58,9 @@
         myGui = new GuiOptions();
         carpertaGui = gui.addFolder('Select options');
         carpertaGui.add(myGui, 'Particle_size', 0, 4);
+        carpertaGui.add(myGui, 'Voluen', 0, 1);
         carpertaGui.add(myGui, 'Disable_Video');
+        carpertaGui.add(myGui, 'Pause');
         carpertaGui.add(myGui, 'listBodyPart', bodyPoint);
         carpertaGui.open();
 
@@ -83,6 +84,7 @@
     export function draw() {
         radius = myGui.Particle_size;
         paso = myGui.listBodyPart;
+        pause = myGui.Pause;
         p5.background(0);
         if (!clicked) {
             p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
@@ -96,7 +98,7 @@
             }
         }
 
-        video.volume(volumen);
+        video.volume(myGui.Voluen);
 
         if (!myGui.Disable_Video) {
             p5.image(video, 0, 0, width, height);
@@ -119,9 +121,11 @@
 
     function GuiOptions() {
         this.Particle_size = 1;
+        this.Voluen = volumen;
         this.Disable_Video = false;
-        this.listBodyPart = 'Wrist';
+        this.listBodyPart = paso;
         this.listClip = queryClip.video;
+        this.Pause = false;
     }
 
     function videoLoaded() {
@@ -143,14 +147,9 @@
         textoIntro = 'Click to play';
         p5.textSize(30);
         p5.text(textoIntro, width / 2, height / 2);
-    }
-
-    function canvasMousePressed() {
-        if (!clicked) {
-            video.volume(0);
-            video.loop();
-            clicked = true;
-        }
+        video.volume(0);
+        video.loop();
+        clicked = true;
     }
 
     function drawParticles(bodyPoint) {
@@ -242,7 +241,7 @@
             // if (paso == "default") {
             p5.rect(this.r, this.r, this.r * radius, this.r * radius);
             p5.strokeWeight(3);
-            //point(10, 10);}
+            //p5.point(10, 10);
             p5.pop();
 
             this.theta += this.thetaSpeed;
