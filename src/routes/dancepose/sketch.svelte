@@ -2,7 +2,8 @@
     import { stores } from '@sapper/app';
     import { createEventDispatcher, onMount } from 'svelte';
     import { listColor } from './Colors.svelte';
-    export let target;
+    import videoData from './video-data.js';
+
     export let p5;
     export let width = 960;
     export let height = 540;
@@ -13,27 +14,25 @@
     if (typeof queryClip.video === 'undefined') {
         queryClip.video = 'lalaland';
     }
+
+    let videoContent = videoData.find(x => x.id === 'lalaland');
+    console.log(videoContent);
+
     let gui, pis, clip, carpertaGui;
-    let movida = 0.8;
-
+    let myGui = 0.8;
     let colores, ball;
-    let radius = movida.r;
-
-    let targetP5 = target;
-    let classifier;
+    let radius = myGui.r;
     let img;
     let video;
     let poseNet;
     let poses = [];
     let canvas;
-
     let particles = [];
     // let e = new p5.Ease();
     let ox, oy;
     let colors = listColor();
-    const canvasScale = 0.5;
     let clicked = false;
-    let paso = 'Wrist';
+    let paso = videoContent.keyPoint;
     let bodyPoint = [
         'Wrist',
         'Eye',
@@ -45,11 +44,10 @@
         'Ankle',
     ];
 
-    var volumen = 0.8;
-    var sound = false;
-    var pause = false;
-    var choreography = false;
-    var videoImagen = true;
+    let volumen = 0.8;
+    let sound = false;
+    let pause = false;
+    let choreography = false;
     let textoIntro = 'Load Video';
 
     export function setup() {
@@ -59,11 +57,11 @@
         let customContainer = document.getElementById('datGui');
         customContainer.appendChild(gui.domElement);
 
-        movida = new MyGui();
+        myGui = new MyGui();
         carpertaGui = gui.addFolder('Select options');
-        carpertaGui.add(movida, 'radio', 0, 2);
-        carpertaGui.add(movida, 'displayOutline');
-        carpertaGui.add(movida, 'listBodyPart', bodyPoint);
+        carpertaGui.add(myGui, 'radio', 0, 2);
+        carpertaGui.add(myGui, 'displayOutline');
+        carpertaGui.add(myGui, 'listBodyPart', bodyPoint);
         carpertaGui.open();
 
         initVideo();
@@ -78,14 +76,14 @@
 
     function initVideo(clip) {
         video = p5.createVideo(
-            'dancepose/' + movida.listClip + '.mp4',
+            'dancepose/' + myGui.listClip + '.mp4',
             videoLoaded
         );
     }
 
     export function draw() {
-        radius = movida.radio;
-        paso = movida.listBodyPart;
+        radius = myGui.radio;
+        paso = myGui.listBodyPart;
         p5.background(0);
         if (!clicked) {
             p5.text(textoIntro, width / 2 - 10, height / 2 + 20);

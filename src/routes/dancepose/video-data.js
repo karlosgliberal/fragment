@@ -7,15 +7,25 @@ const videoData = [
         theme: '0',
         particle: 'square',
         size: ['960', '540'],
+        color: [
+            [247, 23, 53, 220],
+            [65, 234, 212, 220],
+            [255, 159, 28, 220],
+        ],
     },
     {
         id: 'fred',
         title: 'Fred Astaire y Ginger Rogers en Sombrero de copa',
         img: 'dancepose/fred.svg',
-        keyPoint: 'Ankle',
+        keyPoint: 'Hip',
         theme: '0',
         particle: 'square',
         size: ['960', '540'],
+        color: [
+            [247, 23, 53, 220],
+            [65, 234, 212, 220],
+            [255, 159, 28, 220],
+        ],
     },
     {
         id: 'billye',
@@ -25,15 +35,25 @@ const videoData = [
         theme: '0',
         particle: 'square',
         size: ['960', '540'],
+        color: [
+            [247, 23, 53, 220],
+            [65, 234, 212, 220],
+            [255, 159, 28, 220],
+        ],
     },
     {
         id: 'rain',
         title: 'Singing In The Rain ',
         img: 'dancepose/rain.svg',
-        keyPoint: 'Ankle',
+        keyPoint: 'Wrist',
         theme: '0',
         particle: 'square',
         size: ['960', '540'],
+        color: [
+            [247, 23, 53, 220],
+            [65, 234, 212, 220],
+            [255, 159, 28, 220],
+        ],
     },
 ];
 
