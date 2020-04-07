@@ -1,7 +1,3 @@
-<script context="module">
-    export async function preload(page, session) {}
-</script>
-
 <script>
     import { stores } from '@sapper/app';
     import NavSlim from '../../components/NavSlim.svelte';
@@ -10,14 +6,6 @@
     import P5Canvas from '../../components/P5Canvas.svelte';
     import VideoMini from '../../components/VideoMini.svelte';
     import videoData from './video-data.js';
-
-    const { page } = stores();
-    let queryClip = $page.query;
-
-    if (typeof queryClip.video === 'undefined') {
-        queryClip.video = 'lalaland';
-    }
-    // let videoArray = videoData.find(x => x.id === 'lalaland');
 </script>
 
 <div class="flex flex-col justify-between w-screen h-screen bg-a">

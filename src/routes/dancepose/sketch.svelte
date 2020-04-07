@@ -17,7 +17,7 @@
     let movida = 0.8;
 
     let colores, ball;
-    $: radius = movida.r;
+    let radius = movida.r;
 
     let targetP5 = target;
     let classifier;
@@ -35,7 +35,6 @@
     let clicked = false;
     let paso = 'Wrist';
     let bodyPoint = [
-        //"Nose",
         'Wrist',
         'Eye',
         'Ear',
@@ -45,8 +44,6 @@
         'Knee',
         'Ankle',
     ];
-
-    let listVideoClip = ['elvis', 'fred'];
 
     var volumen = 0.8;
     var sound = false;
@@ -75,11 +72,6 @@
         gui.add(movida, 'radio', 0, 2);
         gui.add(movida, 'displayOutline');
         gui.add(movida, 'listBodyPart', bodyPoint);
-        clip = gui.add(movida, 'listClip', listVideoClip);
-
-        clip.onFinishChange(function(value) {
-            video.hide();
-        });
 
         initMl5Video();
 
