@@ -59,7 +59,7 @@
         myGui = new GuiOptions();
         carpertaGui = gui.addFolder('Select options');
         carpertaGui.add(myGui, 'Particle_size', 0, 4);
-        carpertaGui.add(myGui, 'Display_Video');
+        carpertaGui.add(myGui, 'Disable_Video');
         carpertaGui.add(myGui, 'listBodyPart', bodyPoint);
         carpertaGui.open();
 
@@ -98,7 +98,7 @@
 
         video.volume(volumen);
 
-        if (!myGui.Display_Video) {
+        if (!myGui.Disable_Video) {
             p5.image(video, 0, 0, width, height);
         }
         drawParticles(paso);
@@ -119,7 +119,7 @@
 
     function GuiOptions() {
         this.Particle_size = 1;
-        this.Display_Video = false;
+        this.Disable_Video = false;
         this.listBodyPart = 'Wrist';
         this.listClip = queryClip.video;
     }

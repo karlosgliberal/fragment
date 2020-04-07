@@ -1,4 +1,13 @@
-<div class="flex justify-end bg-black">
+<style>
+    .asimetrico {
+        background-image: linear-gradient(#000, #000000);
+        clip-path: polygon(100% 0, 0 100%, 100% 100%);
+        /* clip-path: polygon(100% 100%, 0 100%, 0 0, 100% calc(100% - 4vw)); */
+        /* change the calc height to a percentage height to get alternate responsive behavior*/
+    }
+</style>
+
+<div class="flex justify-end bg-black asimetrico pt-10">
 
     <div class="flex content-center pr-3 pt-2">
         <div>
