@@ -14,6 +14,7 @@
     <div class="w-1/3 flex items-center justify-end h-6">
         <div class="pr-4">
             <a class="uppercase font-bold text-white" href={url}>About</a>
+
         </div>
     </div>
 </div>
