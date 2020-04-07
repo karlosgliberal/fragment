@@ -16,22 +16,23 @@
 
     let videoContent = videoData.find(x => x.id === queryClip.video);
 
-    let gui, pis, clip, carpertaGui;
-    let myGui = 0.8;
-    let colores, ball;
-    let radius = myGui.r;
-    let img;
-    let video;
-    let poseNet;
+    let gui,
+        pis,
+        clip,
+        carpertaGui,
+        myGui,
+        radius,
+        video,
+        canvas,
+        guiContainer,
+        poseNet;
+
     let poses = [];
-    let canvas;
     let particles = [];
-    // let e = new p5.Ease();
-    let ox, oy;
-
-    let colors = videoContent.color;
-
     let clicked = false;
+    let sound = false;
+    let pause = false;
+    let colors = videoContent.color;
     let paso = videoContent.keyPoint;
     let bodyPoint = [
         'Wrist',
@@ -45,22 +46,20 @@
     ];
 
     let volumen = 0.8;
-    let sound = false;
-    let pause = false;
-    let choreography = false;
     let textoIntro = 'Load Video';
 
     export function setup() {
         canvas = p5.createCanvas(960, 540);
         canvas.mousePressed(canvasMousePressed);
         gui = new dat.GUI({ autoPlace: false });
-        let customContainer = document.getElementById('datGui');
-        customContainer.appendChild(gui.domElement);
 
-        myGui = new MyGui();
+        guiContainer = document.getElementById('datGui');
+        guiContainer.appendChild(gui.domElement);
+
+        myGui = new GuiOptions();
         carpertaGui = gui.addFolder('Select options');
-        carpertaGui.add(myGui, 'radio', 0, 2);
-        carpertaGui.add(myGui, 'displayOutline');
+        carpertaGui.add(myGui, 'Particle_size', 0, 4);
+        carpertaGui.add(myGui, 'Display_Video');
         carpertaGui.add(myGui, 'listBodyPart', bodyPoint);
         carpertaGui.open();
 
@@ -74,7 +73,7 @@
         p5.textSize(24);
     }
 
-    function initVideo(clip) {
+    function initVideo() {
         video = p5.createVideo(
             'dancepose/' + myGui.listClip + '.mp4',
             videoLoaded
@@ -82,7 +81,7 @@
     }
 
     export function draw() {
-        radius = myGui.radio;
+        radius = myGui.Particle_size;
         paso = myGui.listBodyPart;
         p5.background(0);
         if (!clicked) {
@@ -98,7 +97,10 @@
         }
 
         video.volume(volumen);
-        p5.image(video, 0, 0, width, height);
+
+        if (!myGui.Display_Video) {
+            p5.image(video, 0, 0, width, height);
+        }
         drawParticles(paso);
         paso = bodyPoint;
 
@@ -115,9 +117,9 @@
         }
     }
 
-    function MyGui() {
-        this.radio = 1;
-        this.displayOutline = false;
+    function GuiOptions() {
+        this.Particle_size = 1;
+        this.Display_Video = false;
         this.listBodyPart = 'Wrist';
         this.listClip = queryClip.video;
     }
