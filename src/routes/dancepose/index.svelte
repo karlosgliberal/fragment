@@ -5,13 +5,11 @@
     import videoData from './video-data.js';
 </script>
 
-<!-- <style>
-    .asimetrico {
-        background-image: linear-gradient(#000000, #000000);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
-        /* change the calc height to a percentage height to get alternate responsive behavior*/
+<style>
+    .video-min__wrap {
+        height: 540px;
     }
-</style> -->
+</style>
 
 <div class="flex justify-center pt-20 pb-16">
     <div class="flex justify-center content-center pl-100 wrap-canvas">
@@ -22,8 +20,8 @@
         <P5Canvas sketch={SimpleSketch} width="960" height="540" />
     </div>
     <div
-        class=" flex flex-col videosmini justify-between h-full text-center pl-4
-        pt-2">
+        class=" flex flex-col videosmini video-min__wrap justify-between
+        text-center pl-4 pt-2">
         {#each videoData as { id, img }, i}
             <VideoMini {id} {img} />
         {/each}

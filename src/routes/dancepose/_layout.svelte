@@ -75,11 +75,14 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        .h-custom {
+            min-height: 880px;
+        }
     </style>
 </svelte:head>
 
 <div
-    class="flex flex-col justify-between w-screen h-screen bga overflow-hidden">
+    class="flex flex-col justify-between w-screen h-custom bga xoverflow-hidden">
     <NavSlim {segment} />
     <slot />
     <Footer />
