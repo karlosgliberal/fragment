@@ -11,7 +11,7 @@
     }
 </style>
 
-<div class="flex justify-center pt-20 pb-16">
+<div class="flex justify-center pt-10 pb-16">
     <div class="flex justify-center content-center pl-100 wrap-canvas">
         <div id="datGui" class="datGui text-black" />
         <div id="logodp" class="fixed m-24 pl-7">
