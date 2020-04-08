@@ -69,12 +69,17 @@
         .dg .slider {
             margin-left: 0 !important;
         }
+
+        .bga {
+            background-image: url('bgf.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
 </svelte:head>
 
 <div
-    class="flex flex-col justify-between w-screen h-screen bg-gray-400
-    overflow-hidden">
+    class="flex flex-col justify-between w-screen h-screen bga overflow-hidden">
     <NavSlim {segment} />
     <slot />
     <Footer />
