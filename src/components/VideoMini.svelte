@@ -9,9 +9,12 @@
     }
 </script>
 
-<div class="video-card m-2 flex items-center justify-center" style="">
+<div
+    class="video-card m-2 flex items-center justify-center"
+    style=""
+    on:click={handleSubmit}>
 
-    <div class="absolute" on:click={handleSubmit}>
+    <div class="absolute">
         <img src="playermini.svg" alt="Play" />
     </div>
 
