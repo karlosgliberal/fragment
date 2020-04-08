@@ -15,17 +15,21 @@
         /* clip-path: polygon(100% 100%, 0 100%, 0 0, 100% calc(100% - 4vw)); */
         /* change the calc height to a percentage height to get alternate responsive behavior*/
     }
+    .logodance {
+        width: 235px;
+        height: auto;
+    }
 </style>
 
-<div class="flex bg-black py-3 asimetrico pb-16">
+<div class="flex py-6">
     <div class="w-1/3 h-6 flex justify-star items-center" />
     <div class="w-1/3 flex items-center justify-center h-6">
-        <div>
-            <img src="logo.svg" alt="Dance pose" />
+        <div class="pt-5">
+            <img class="logodance" src="logo.svg" alt="Dance pose" />
         </div>
     </div>
     <div class="w-1/3 flex items-center justify-end h-6">
-        <div class="pr-4">
+        <div class="pr-6">
             {#if segment === undefined}
                 <a
                     href="dancepose/about"

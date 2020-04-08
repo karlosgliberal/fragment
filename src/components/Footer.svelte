@@ -7,7 +7,7 @@
     }
 </style>
 
-<div class="flex justify-end bg-black asimetrico pt-4 pb-2">
+<div class="flex justify-end bg-gray-800">
 
     <div class="flex content-center pr-3 pt-2">
         <div>
