@@ -1,11 +1,17 @@
+<script>
+    export let segment;
+    function handleSubmit() {
+        window.location.replace(`/dancepose`);
+    }
+</script>
+
 <style>
     .bgfooter {
         background-color: rgba(7, 7, 7, 0.2);
     }
 </style>
 
-<div class="flex justify-end bgfooter">
-
+<div class="flex justify-end {segment === undefined ? 'bgfooter' : 'bg-dark'} ">
     <div class="flex content-center pr-3 py-2">
         <div>
             <a href="https://www.biko2.com/" target="_blank">

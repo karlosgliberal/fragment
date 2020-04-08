@@ -15,10 +15,10 @@
     }
 </style>
 
-<div class="flex py-6 {segment === undefined ? 'bg-dark' : ''}">
+<div class="flex py-2 {segment === undefined ? 'bg-dark' : ''}">
     <div class="w-1/3 h-6 flex justify-star items-center" />
     <div class="w-1/3 flex items-center justify-center h-6">
-        <div class="pt-10">
+        <div class={segment === undefined ? 'pt-10' : ''}>
             {#if segment === undefined}
                 <img class="logodance" src="logo.svg" alt="Dance pose" />
             {:else}
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="w-1/3 flex items-center justify-end h-6">
-        <div class="pr-10 pt-8">
+        <div class=" {segment === undefined ? 'pr-10 pt-8' : 'pr-4'}">
             {#if segment === undefined}
                 <a
                     href="dancepose/about"

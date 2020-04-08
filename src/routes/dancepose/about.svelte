@@ -1,4 +1,10 @@
-<div class="bg-white">
+<style>
+    .h-about {
+        min-height: 1200px;
+    }
+</style>
+
+<div class="bg-white h-about">
     <div class="container flex px-10">
         <div class="w-3/12" />
         <div class="pt-10 px-10 w-4/6">

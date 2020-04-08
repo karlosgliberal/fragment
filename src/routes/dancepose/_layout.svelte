@@ -74,15 +74,13 @@
             background-image: url('bgf.png');
             background-position: center;
             background-repeat: no-repeat;
-        }
-        .h-custom {
-            /* min-height: 880px; */
+            background-size: cover;
         }
     </style>
 </svelte:head>
 
 <div
-    class="flex flex-col justify-between w-screen h-screen bga overflow-hidden">
+    class="flex flex-col justify-between w-screen h-screen bga {segment === undefined ? 'overflow-hidden' : ''}">
     <NavSlim {segment} />
     <slot />
     <Footer />
