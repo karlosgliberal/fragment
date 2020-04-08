@@ -31,7 +31,9 @@
     let particles = [];
     let clicked = false;
     let sound = false;
-    let pause = false;
+    let pause = true;
+    let save = false;
+    let trail = false;
     let colors = videoContent.color;
     let paso = videoContent.keyPoint;
     let bodyPoint = [
@@ -60,7 +62,9 @@
         carpertaGui.add(myGui, 'Particle_size', 0, 4);
         carpertaGui.add(myGui, 'Voluen', 0, 1);
         carpertaGui.add(myGui, 'Disable_Video');
+        carpertaGui.add(myGui, 'Trail');
         carpertaGui.add(myGui, 'Pause');
+        carpertaGui.add(myGui, 'Save');
         carpertaGui.add(myGui, 'listBodyPart', bodyPoint);
         carpertaGui.open();
 
@@ -85,7 +89,21 @@
         radius = myGui.Particle_size;
         paso = myGui.listBodyPart;
         pause = myGui.Pause;
-        p5.background(0);
+        trail = myGui.Trail;
+        console.log(trail);
+
+        if (myGui.Trail) {
+            myGui.Disable_Video = true;
+            p5.background(0, 20);
+        } else {
+            p5.background(0);
+        }
+
+        if (myGui.Save) {
+            p5.save('movida.svg');
+            myGui.Save = false;
+        }
+
         if (!clicked) {
             p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
         }
@@ -125,7 +143,9 @@
         this.Disable_Video = false;
         this.listBodyPart = paso;
         this.listClip = queryClip.video;
+        this.Trail = trail;
         this.Pause = false;
+        this.Save = save;
     }
 
     function videoLoaded() {
