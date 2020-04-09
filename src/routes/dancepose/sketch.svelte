@@ -96,7 +96,9 @@
             p5.background(0, 20);
         } else {
             //myGui.Disable_Video = false;
-            p5.background(0);
+            if (p5.frameCount % 50 == 0) {
+                //p5.background(0);
+            }
         }
 
         if (myGui.Save) {
@@ -197,13 +199,14 @@
         let targetX = keypointx;
         let targetY = keypointy;
 
-        let randomTheta = p5.random(360);
+        let randomTheta = p5.random(3);
         let randomR = p5.random(5);
 
-        let X = targetX + randomR * p5.cos(randomTheta);
+        let X = targetX + randomR * p5.cos(randomTheta) * 10;
         let Y = targetY + randomR * p5.sin(randomTheta);
 
-        let dis = p5.dist(targetX, targetY, X, Y);
+        // let dis = p5.dist(targetX, targetY, X, Y);
+        let dis = 2;
         let C;
 
         C = p5.floor(p5.random(0, 3));
@@ -253,12 +256,13 @@
 
             p5.noFill();
             p5.stroke(colors[this.colorIndex]);
+            // p5.fill(colors[this.colorIndex]);
 
             p5.push();
             p5.translate(this.pos.x, this.pos.y);
             p5.rotate(this.theta);
 
-            p5.ellipse(this.r, this.r, this.r * radius, this.r * radius);
+            p5.rect(this.r, this.r, this.r * radius, this.r * radius);
             //p5.point(10, 10);
             p5.pop();
 
