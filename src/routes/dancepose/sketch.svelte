@@ -47,7 +47,7 @@
         'Ankle',
     ];
 
-    let volumen = 0.8;
+    let volumen = 0;
     let textoIntro = 'Load Video';
 
     export function setup() {
@@ -90,12 +90,12 @@
         paso = myGui.listBodyPart;
         pause = myGui.Pause;
         trail = myGui.Trail;
-        console.log(trail);
 
         if (myGui.Trail) {
-            myGui.Disable_Video = true;
+            //myGui.Disable_Video = true;
             p5.background(0, 20);
         } else {
+            //myGui.Disable_Video = false;
             p5.background(0);
         }
 
@@ -258,9 +258,7 @@
             p5.translate(this.pos.x, this.pos.y);
             p5.rotate(this.theta);
 
-            // if (paso == "default") {
-            p5.rect(this.r, this.r, this.r * radius, this.r * radius);
-            p5.strokeWeight(3);
+            p5.ellipse(this.r, this.r, this.r * radius, this.r * radius);
             //p5.point(10, 10);
             p5.pop();
 

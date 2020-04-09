@@ -3,7 +3,7 @@ const videoData = [
         id: 'lalaland',
         title: 'La La Land',
         img: 'dancepose/lalaland.svg',
-        keyPoint: 'Knee',
+        keyPoint: 'Ankle',
         theme: '0',
         particle: 'square',
         size: ['960', '540'],
