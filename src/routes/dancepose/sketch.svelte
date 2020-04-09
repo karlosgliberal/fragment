@@ -139,41 +139,6 @@
         }
     }
 
-    function GuiOptions() {
-        this.Particle_size = 1;
-        this.Voluen = volumen;
-        this.Disable_Video = false;
-        this.listBodyPart = paso;
-        this.listClip = queryClip.video;
-        this.Trail = trail;
-        this.Pause = false;
-        this.Save = save;
-    }
-
-    function videoLoaded() {
-        textoIntro = 'Load IA model...';
-        p5.textSize(25);
-        video.size(960, 540);
-        p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
-        poseNet = ml5.poseNet(video, modelReady);
-        poseNet.on('pose', function(results) {
-            poses = results;
-        });
-        video.hide();
-    }
-
-    function modelReady() {
-        console.log('cargando el  modelos');
-        let logodpContainer = document.getElementById('logodp');
-        logodpContainer.remove();
-        textoIntro = 'Click to play';
-        p5.textSize(30);
-        p5.text(textoIntro, width / 2, height / 2);
-        video.volume(0);
-        video.loop();
-        clicked = true;
-    }
-
     function drawParticles(bodyPoint) {
         for (let i = 0; i < poses.length; i++) {
             let pose = poses[i].pose;
@@ -220,8 +185,10 @@
             this.pos = p5.createVector(tmpX, tmpY);
             this.paso = paso;
             this.rMax = tmpRmax;
-            this.theta = p5.random(360);
-            this.thetaSpeed = p5.random(-4);
+            //this.theta = p5.random(360);
+            this.theta = 0;
+            // this.thetaSpeed = p5.random(-4);
+            this.thetaSpeed = 0;
             this.r = 0;
             this.delta = 0;
             this.speed = (1 * 1.5) / 30;
@@ -276,5 +243,40 @@
             // //this.pos.x -= this.ySpeed;
             this.xNoise += 0.01;
         }
+    }
+
+    function GuiOptions() {
+        this.Particle_size = 1;
+        this.Voluen = volumen;
+        this.Disable_Video = false;
+        this.listBodyPart = paso;
+        this.listClip = queryClip.video;
+        this.Trail = trail;
+        this.Pause = false;
+        this.Save = save;
+    }
+
+    function videoLoaded() {
+        textoIntro = 'Load IA model...';
+        p5.textSize(25);
+        video.size(960, 540);
+        p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
+        poseNet = ml5.poseNet(video, modelReady);
+        poseNet.on('pose', function(results) {
+            poses = results;
+        });
+        video.hide();
+    }
+
+    function modelReady() {
+        console.log('cargando el  modelos');
+        let logodpContainer = document.getElementById('logodp');
+        logodpContainer.remove();
+        textoIntro = 'Click to play';
+        p5.textSize(30);
+        p5.text(textoIntro, width / 2, height / 2);
+        video.volume(0);
+        video.loop();
+        clicked = true;
     }
 </script>
