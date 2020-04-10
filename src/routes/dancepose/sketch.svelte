@@ -177,7 +177,7 @@
         C = p5.floor(p5.random(0, 3));
         let Rmax = dis > 20 ? 35 - dis : p5.random(2, 8);
         particles.push(new Particle(X, Y, C, Rmax, paso));
-        //  particles.push(new Particle(X, Y, C, Rmax, paso));
+        particles.push(new Particle(X, Y, C, Rmax, paso));
     }
 
     class Particle {
@@ -185,8 +185,8 @@
             this.pos = p5.createVector(tmpX, tmpY);
             this.paso = paso;
             this.rMax = tmpRmax;
-            //this.theta = p5.random(360);
-            this.theta = 0;
+            this.theta = p5.random(360);
+            //this.theta = 0;
             // this.thetaSpeed = p5.random(-4);
             this.thetaSpeed = 0;
             this.r = 0;
@@ -233,8 +233,8 @@
             //p5.point(10, 10);
             p5.pop();
 
-            this.theta += this.thetaSpeed;
-            this.pos.y -= this.ySpeed;
+            this.theta -= this.thetaSpeed;
+            this.pos.y += this.ySpeed;
 
             // if (paso == "default") {
             // } else {
