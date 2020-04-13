@@ -2,11 +2,27 @@
     import Page from '../components/Page.svelte';
 </script>
 
-<svelte:head>
-    <title>Bikolabs</title>
-</svelte:head>
+<style>
+    #centercenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 80vh;
+    }
+</style>
 
-<div>
-    <h1 class="text-white">hola</h1>
-    <a class="text-winte" href="dancepose">dancepose</a>
+<svelte:head>
+    <title>Fragment</title>
+</svelte:head>
+<div id="centercenter" class="flex justify-center w-full">
+    <div class="flex">
+        <img src="fragment.png" alt="" />
+    </div>
+
+</div>
+<div class="flex justify-center w-">
+    <div class="flex">
+        <a href="dancepose">Dancepose</a>
+    </div>
 </div>

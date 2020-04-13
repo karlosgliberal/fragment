@@ -1,9 +1,7 @@
 <script>
     export let segment;
-    console.log(segment);
 
     function handleSubmit() {
-        console.log('mdfasd');
         window.location.replace(`/dancepose`);
     }
 </script>

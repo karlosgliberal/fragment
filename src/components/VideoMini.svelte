@@ -4,7 +4,6 @@
     export let img = 'lalaland';
 
     function handleSubmit() {
-        console.log('mdfasd');
         window.location.replace(`/dancepose?video=${id}`);
     }
 </script>
