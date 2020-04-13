@@ -164,14 +164,13 @@
         let targetX = keypointx;
         let targetY = keypointy;
 
-        let randomTheta = p5.random(3);
+        let randomTheta = p5.random(360);
         let randomR = p5.random(5);
 
-        let X = targetX + randomR * p5.cos(randomTheta) * 10;
+        let X = targetX + randomR * p5.cos(randomTheta);
         let Y = targetY + randomR * p5.sin(randomTheta);
 
-        // let dis = p5.dist(targetX, targetY, X, Y);
-        let dis = 2;
+        let dis = p5.dist(targetX, targetY, X, Y);
         let C;
 
         C = p5.floor(p5.random(0, 3));
@@ -186,9 +185,7 @@
             this.paso = paso;
             this.rMax = tmpRmax;
             this.theta = p5.random(360);
-            //this.theta = 0;
-            // this.thetaSpeed = p5.random(-4);
-            this.thetaSpeed = 0;
+            this.thetaSpeed = p5.random(-4);
             this.r = 0;
             this.delta = 0;
             this.speed = (1 * 1.5) / 30;
@@ -201,21 +198,22 @@
 
         display() {
             if (!this.isDeg) {
-                // this.r = this.rMax * e.maclaurinCosine(this.delta);
-                this.r = this.rMax * p5.cos(this.delta);
+                this.r = this.rMax * maclaurinCosine(this.delta);
+                //this.r = this.rMax * p5.cos(this.delta);
                 this.delta += this.speed;
                 if (this.delta > 1.0) {
                     this.delta = 1.0;
                     this.isDeg = true;
                 }
             } else {
-                this.r = this.rMax * p5.sin(this.delta);
+                this.r = this.rMax * circularOut(this.delta);
                 this.delta -= this.speed * 1.5;
                 if (this.delta < 0.0) {
                     this.delta = 0.0;
                     this.isFinished = true;
                 }
             }
+
             this.pos.x =
                 this.pos.x +
                 this.xNoise +
@@ -234,7 +232,7 @@
             p5.pop();
 
             this.theta -= this.thetaSpeed;
-            this.pos.y += this.ySpeed;
+            this.pos.y -= this.ySpeed;
 
             // if (paso == "default") {
             // } else {
@@ -246,7 +244,7 @@
     }
 
     function GuiOptions() {
-        this.Particle_size = 1;
+        this.Particle_size = 0.6;
         this.Voluen = volumen;
         this.Disable_Video = false;
         this.listBodyPart = paso;
@@ -278,5 +276,32 @@
         video.volume(0);
         video.loop();
         clicked = true;
+    }
+
+    function maclaurinCosine(_x) {
+        var nTerms = 6; // anything less is fouled
+
+        _x *= p5.PI;
+        var xp = 1.0;
+        var x2 = _x * _x;
+
+        var sig = 1.0;
+        var fact = 1.0;
+        var _y = xp;
+
+        for (var i = 0; i < nTerms; i++) {
+            xp *= x2;
+            sig = 0 - sig;
+            fact *= i * 2 + 1;
+            fact *= i * 2 + 2;
+            _y += sig * (xp / fact);
+        }
+
+        _y = (1.0 - _y) / 2.0;
+
+        return _y;
+    }
+    function circularOut(_x) {
+        return p5.sqrt((2 - _x) * _x);
     }
 </script>
