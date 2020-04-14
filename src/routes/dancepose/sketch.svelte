@@ -102,7 +102,7 @@
         }
 
         if (myGui.Save) {
-            p5.save('movida.svg');
+            p5.save('capturaDancePose.png');
             myGui.Save = false;
         }
 
@@ -270,7 +270,7 @@
         console.log('cargando el  modelos');
         let logodpContainer = document.getElementById('logodp');
         logodpContainer.remove();
-        textoIntro = 'Click to play';
+        textoIntro = '';
         p5.textSize(30);
         p5.text(textoIntro, width / 2, height / 2);
         video.volume(0);
