@@ -23,6 +23,12 @@
 </div>
 <div class="flex justify-center w-">
     <div class="flex">
-        <a href="dancepose">Dancepose</a>
+        <a
+            class="inline-block border-solid border hover:border-black
+            border-gray-500 uppercase py-3 px-10 transition duration-150
+            ease-in-out transform hover:scale-105"
+            href="dancepose">
+            Dancepose
+        </a>
     </div>
 </div>
