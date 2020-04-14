@@ -64,8 +64,8 @@
         carpertaGui.add(myGui, 'Disable_Video').name('Disable video');
         carpertaGui.add(myGui, 'Trail').name('Trail');
         carpertaGui.add(myGui, 'Pause').name('Pause video');
-        carpertaGui.add(myGui, 'Save').name('Save frame');
         carpertaGui.add(myGui, 'listBodyPart', bodyPoint).name('Body points');
+        carpertaGui.add(myGui, 'Save').name('Save frame');
         carpertaGui.open();
 
         initVideo();
@@ -101,9 +101,9 @@
             }
         }
 
-        if (myGui.Save) {
+        if (save) {
             p5.save('capturaDancePose.png');
-            myGui.Save = false;
+            save = false;
         }
 
         if (!clicked) {
@@ -251,7 +251,10 @@
         this.listClip = queryClip.video;
         this.Trail = trail;
         this.Pause = false;
-        this.Save = save;
+        this.Save = function() {
+            save = true;
+            console.log('save frame');
+        };
     }
 
     function videoLoaded() {
