@@ -17,7 +17,7 @@ const videoData = [
         id: 'fred',
         title: 'Fred Astaire y Ginger Rogers en Sombrero de copa',
         img: 'dancepose/fred.svg',
-        keyPoint: 'Ankle',
+        keyPoint: 'Wrist',
         theme: '0',
         particle: 'square',
         size: ['960', '540'],

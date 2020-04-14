@@ -11,7 +11,7 @@
     let queryClip = $page.query;
 
     if (typeof queryClip.video === 'undefined') {
-        queryClip.video = 'lalaland';
+        queryClip.video = 'fred';
     }
 
     let videoContent = videoData.find(x => x.id === queryClip.video);
@@ -33,6 +33,7 @@
     let sound = false;
     let pause = true;
     let save = false;
+    let videoFrame = false;
     let trail = false;
     let colors = videoContent.color;
     let paso = videoContent.keyPoint;
@@ -61,6 +62,7 @@
         carpertaGui = gui.addFolder('Select options');
         carpertaGui.add(myGui, 'Particle_size', 0, 4).name('Particle size');
         carpertaGui.add(myGui, 'Volumen', 0, 1).name('Volume');
+        carpertaGui.add(myGui, 'PaintFrame').name('Paint Frame');
         carpertaGui.add(myGui, 'Disable_Video').name('Disable video');
         carpertaGui.add(myGui, 'Trail').name('Trail');
         carpertaGui.add(myGui, 'Pause').name('Pause video');
@@ -92,13 +94,22 @@
         trail = myGui.Trail;
 
         if (myGui.Trail) {
-            //myGui.Disable_Video = true;
+            myGui.PaintFrame = true;
+            p5.background(0);
+        } else {
+            myGui.PaintFrame = false;
+        }
+
+        if (myGui.Disable_Video) {
+            myGui.PaintFrame = true;
+
             p5.background(0, 20);
         } else {
-            //myGui.Disable_Video = false;
-            if (p5.frameCount % 50 == 0) {
-                //p5.background(0);
-            }
+            myGui.PaintFrame = false;
+        }
+
+        if (!myGui.PaintFrame) {
+            p5.image(video, 0, 0, width, height);
         }
 
         if (save) {
@@ -120,9 +131,6 @@
 
         video.volume(myGui.Volumen);
 
-        if (!myGui.Disable_Video) {
-            p5.image(video, 0, 0, width, height);
-        }
         drawParticles(paso);
         paso = bodyPoint;
 
@@ -246,6 +254,7 @@
     function GuiOptions() {
         this.Particle_size = 0.6;
         this.Volumen = volumen;
+        this.PaintFrame = false;
         this.Disable_Video = false;
         this.listBodyPart = paso;
         this.listClip = queryClip.video;
