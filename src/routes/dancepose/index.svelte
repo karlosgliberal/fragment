@@ -15,7 +15,7 @@
     <div class="flex justify-center content-center pl-100 wrap-canvas">
         <div id="datGui" class="datGui text-black" />
         <div id="logodp" class="fixed m-24 pl-7">
-            <img src="logodp.gif" alt="" />
+            <img src="logodp.webp" alt="" />
         </div>
         <P5Canvas sketch={SimpleSketch} width="960" height="540" />
     </div>
