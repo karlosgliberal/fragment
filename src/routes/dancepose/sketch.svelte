@@ -47,7 +47,7 @@
         'Ankle',
     ];
 
-    let volumen = 0;
+    let volumen = 0.5;
     let textoIntro = 'Load Video';
 
     export function setup() {
@@ -60,7 +60,7 @@
         myGui = new GuiOptions();
         carpertaGui = gui.addFolder('Select options');
         carpertaGui.add(myGui, 'Particle_size', 0, 4);
-        carpertaGui.add(myGui, 'Voluen', 0, 1);
+        carpertaGui.add(myGui, 'Volumen', 0, 1);
         carpertaGui.add(myGui, 'Disable_Video');
         carpertaGui.add(myGui, 'Trail');
         carpertaGui.add(myGui, 'Pause');
@@ -118,7 +118,7 @@
             }
         }
 
-        video.volume(myGui.Voluen);
+        video.volume(myGui.Volumen);
 
         if (!myGui.Disable_Video) {
             p5.image(video, 0, 0, width, height);
@@ -245,7 +245,7 @@
 
     function GuiOptions() {
         this.Particle_size = 0.6;
-        this.Voluen = volumen;
+        this.Volumen = volumen;
         this.Disable_Video = false;
         this.listBodyPart = paso;
         this.listClip = queryClip.video;
