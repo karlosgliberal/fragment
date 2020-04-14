@@ -48,7 +48,7 @@
     ];
 
     let volumen = 0.5;
-    let textoIntro = 'Load Video';
+    let textoIntro = '';
 
     export function setup() {
         canvas = p5.createCanvas(960, 540);
@@ -59,13 +59,13 @@
 
         myGui = new GuiOptions();
         carpertaGui = gui.addFolder('Select options');
-        carpertaGui.add(myGui, 'Particle_size', 0, 4);
-        carpertaGui.add(myGui, 'Volumen', 0, 1);
-        carpertaGui.add(myGui, 'Disable_Video');
-        carpertaGui.add(myGui, 'Trail');
-        carpertaGui.add(myGui, 'Pause');
-        carpertaGui.add(myGui, 'Save');
-        carpertaGui.add(myGui, 'listBodyPart', bodyPoint);
+        carpertaGui.add(myGui, 'Particle_size', 0, 4).name('Particle size');
+        carpertaGui.add(myGui, 'Volumen', 0, 1).name('Volume');
+        carpertaGui.add(myGui, 'Disable_Video').name('Disable video');
+        carpertaGui.add(myGui, 'Trail').name('Trail');
+        carpertaGui.add(myGui, 'Pause').name('Pause video');
+        carpertaGui.add(myGui, 'Save').name('Save frame');
+        carpertaGui.add(myGui, 'listBodyPart', bodyPoint).name('Body points');
         carpertaGui.open();
 
         initVideo();
@@ -255,7 +255,7 @@
     }
 
     function videoLoaded() {
-        textoIntro = 'Load IA model...';
+        textoIntro = 'Loading AI model...';
         p5.textSize(25);
         video.size(960, 540);
         p5.text(textoIntro, width / 2 - 10, height / 2 + 20);
