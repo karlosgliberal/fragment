@@ -36,6 +36,8 @@
     let videoFrame = false;
     let trail = false;
     let colors = videoContent.color;
+
+    let ox, oy;
     let paso = videoContent.keyPoint;
     let bodyPoint = [
         'Wrist',
@@ -62,9 +64,9 @@
         carpertaGui = gui.addFolder('Select options');
         carpertaGui.add(myGui, 'Particle_size', 0, 4).name('Particle size');
         carpertaGui.add(myGui, 'Volumen', 0, 1).name('Volume');
-        carpertaGui.add(myGui, 'PaintFrame').name('Paint Frame');
         carpertaGui.add(myGui, 'Disable_Video').name('Disable video');
         carpertaGui.add(myGui, 'Trail').name('Trail');
+        carpertaGui.add(myGui, 'particleDirection').name('Particle direction');
         carpertaGui.add(myGui, 'Pause').name('Pause video');
         carpertaGui.add(myGui, 'listBodyPart', bodyPoint).name('Body points');
         carpertaGui.add(myGui, 'Save').name('Save frame');
@@ -93,23 +95,12 @@
         pause = myGui.Pause;
         trail = myGui.Trail;
 
-        if (myGui.Trail) {
-            myGui.PaintFrame = true;
-            p5.background(0);
-        } else {
-            myGui.PaintFrame = false;
-        }
-
         if (myGui.Disable_Video) {
-            myGui.PaintFrame = true;
-
-            p5.background(0, 20);
-        } else {
-            myGui.PaintFrame = false;
+            p5.background(0);
         }
 
-        if (!myGui.PaintFrame) {
-            p5.image(video, 0, 0, width, height);
+        if (myGui.Trail) {
+            //p5.background(0);
         }
 
         if (save) {
@@ -129,9 +120,13 @@
             }
         }
 
-        video.volume(myGui.Volumen);
+        if (!myGui.Trail && !myGui.Disable_Video) {
+            p5.image(video, 0, 0, width, height);
+        }
 
         drawParticles(paso);
+        video.volume(myGui.Volumen);
+
         paso = bodyPoint;
 
         for (let i = 0; i < particles.length; i++) {
@@ -173,16 +168,17 @@
         let targetY = keypointy;
 
         let randomTheta = p5.random(360);
-        let randomR = p5.random(5);
+        let randomR = 1;
 
         let X = targetX + randomR * p5.cos(randomTheta);
         let Y = targetY + randomR * p5.sin(randomTheta);
 
-        let dis = p5.dist(targetX, targetY, X, Y);
+        //let dis = p5.dist(targetX, targetY, X, Y);
         let C;
 
-        C = p5.floor(p5.random(0, 3));
-        let Rmax = dis > 20 ? 35 - dis : p5.random(2, 8);
+        C = p5.floor(p5.random(3));
+        let Rmax = p5.random(3, 6);
+        //let Rmax = dis > 20 ? 35 - dis : p5.random(2, 8);
         particles.push(new Particle(X, Y, C, Rmax, paso));
         particles.push(new Particle(X, Y, C, Rmax, paso));
     }
@@ -193,20 +189,22 @@
             this.paso = paso;
             this.rMax = tmpRmax;
             this.theta = p5.random(360);
-            this.thetaSpeed = p5.random(-4);
+            this.thetaSpeed = p5.random(-4, 4);
             this.r = 0;
             this.delta = 0;
             this.speed = (1 * 1.5) / 30;
+            this.life = this.rMax * 2;
             this.isDeg = false;
             this.isFinished = false;
             this.colorIndex = tmpC;
-            this.ySpeed = 2;
+            this.ySpeed = p5.random(0.2, 2);
             this.xNoise = p5.random(1.0);
         }
 
         display() {
             if (!this.isDeg) {
-                this.r = this.rMax * maclaurinCosine(this.delta);
+                // this.r = this.rMax * maclaurinCosine(this.delta);
+                this.r = this.rMax * circularOut(this.delta);
                 //this.r = this.rMax * p5.cos(this.delta);
                 this.delta += this.speed;
                 if (this.delta > 1.0) {
@@ -222,10 +220,13 @@
                 }
             }
 
+            // this.pos.x =
+            //     this.pos.x +
+            //     this.xNoise +
+            //     p5.map(p5.noise(this.xNoise), 0, 1, -50, 50);
+
             this.pos.x =
-                this.pos.x +
-                this.xNoise +
-                p5.map(p5.noise(this.xNoise), 0, 1, -5, 5);
+                this.pos.x + p5.map(p5.noise(this.xNoise), 0, 1, -5, 5);
 
             p5.noFill();
             p5.stroke(colors[this.colorIndex]);
@@ -235,14 +236,27 @@
             p5.translate(this.pos.x, this.pos.y);
             p5.rotate(this.theta);
 
-            p5.rect(this.r, this.r, this.r * radius, this.r * radius);
+            p5.beginShape();
+            for (let i = 0; i < 4; i++) {
+                p5.vertex(
+                    this.r * radius * p5.cos((i * 360) / 4),
+                    this.r * radius * p5.sin((i * 360) / 4)
+                );
+            }
+            p5.endShape(p5.CLOSE);
+            // p5.rect(this.r, this.r, this.r * radius, this.r * radius);
             //p5.point(10, 10);
             p5.pop();
 
-            this.theta -= this.thetaSpeed;
-            this.pos.y -= this.ySpeed;
+            this.theta += this.thetaSpeed;
 
-            // if (paso == "default") {
+            if (myGui.particleDirection) {
+                this.pos.y -= this.ySpeed;
+            } else {
+                this.pos.y += this.ySpeed;
+            }
+
+            //if (paso == "default") {
             // } else {
             //   this.pos.y -= this.ySpeed;
             // }
@@ -252,14 +266,14 @@
     }
 
     function GuiOptions() {
-        this.Particle_size = 0.6;
+        this.Particle_size = 0.4;
         this.Volumen = volumen;
-        this.PaintFrame = false;
         this.Disable_Video = false;
         this.listBodyPart = paso;
         this.listClip = queryClip.video;
         this.Trail = trail;
         this.Pause = false;
+        this.particleDirection = false;
         this.Save = function() {
             save = true;
             console.log('save frame');
