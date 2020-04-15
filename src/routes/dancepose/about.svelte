@@ -6,8 +6,8 @@
 
 <div class="bg-white h-about">
     <div class="container flex px-10">
-        <div class="w-3/12" />
-        <div class="pt-10 px-10 w-4/6">
+        <div class="w-0 xl:w-3/12" />
+        <div class="pt-5 px-3 xl:pt-10 xl:px-10 w-full xl:w-4/6">
             <h2 class="font-ptserif font-bold text-5xl pb-4">About US</h2>
             <div class="font-lato leading-relaxed">
                 <p>
@@ -53,7 +53,7 @@
 
             </div>
         </div>
-        <div class="w-3/12" />
+        <div class="w-0 xl:w-3/12" />
     </div>
 
     <div class="divider-xl" />
