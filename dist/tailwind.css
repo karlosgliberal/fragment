@@ -1,0 +1,137 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* Custom fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=PT+Serif:wght@700&display=swap");
+
+body {
+    @apply bg-white;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.video-card {
+    width: 140px;
+    height: 100px;
+    cursor: pointer;
+    border-bottom: 7px solid #01aeff;
+}
+
+.video-card:first-child {
+    margin-top: 0px !important;
+}
+
+.video-card:last-child {
+    margin-bottom: 0px !important;
+}
+
+.text-about p {
+    @apply pb-5 text-gray-800;
+}
+
+.text-about a {
+    @apply text-gray-600 underline;
+}
+
+.video-card:hover {
+    opacity: 0.8;
+
+    @apply transition duration-150 ease-out;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+strong {
+    @apply font-bold;
+}
+
+.title-border {
+    @apply text-lg font-lato font-bold;
+}
+
+.title-medium {
+    @apply font-lato font-bold text-xl pb-3;
+}
+
+.divider-xl {
+    @apply h-24;
+}
+
+input[type="checkbox"] {
+    background-color: transparent;
+}
+
+.dg .c input[type=checkbox] {
+    margin-top: 12px !important;
+}
+
+select {
+    color: #fffcfc;
+    width: 100%;
+    height: 25px;
+    background-color: #303030;
+}
+
+.dg li:not(.folder) {
+    cursor: auto;
+    height: 40px !important;
+    line-height: 27px;
+    padding: 0 4px;
+}
+
+.dg .c .slider-fg {
+    background: white;
+    max-width: 100%;
+    height: 15px;
+    position: relative;
+    top: -6px;
+}
+
+.dg .slider {
+    float: left;
+    width: 66%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 4px !important;
+    margin-top: 6px;
+    position: relative;
+    top: 13px;
+}
+
+.dg .cr.number input[type=text] {
+    color: #ffffff !important;
+}
+
+.property-name {
+    padding-top: 3px !important;
+}
+
+.dg .c input[type=text] {
+    border: 0;
+    margin-top: 4px;
+    padding: 3px;
+    width: 50%;
+    float: right;
+}
+
+.dg .slider {
+    margin-left: 0 !important;
+}
+
+.videosmini:first-child {
+    margin-top: 0 !important;
+}
+
+.wrap-canvas {
+    width: 1215px;
+    height: 520px;
+}
